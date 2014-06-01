@@ -102,7 +102,7 @@ namespace Google.ProtocolBuffers.ProtoGen
                 if (options != null && options.HasInterfaceId)
                 {
                     writer.WriteLine("[global::System.Runtime.InteropServices.GuidAttribute(\"{0}\")]",
-                                     new Guid(options.InterfaceId));
+                                     new System.Guid(options.InterfaceId));
                 }
                 WriteGeneratedCodeAttributes(writer);
                 writer.WriteLine("{0} partial interface I{1} {{", ClassAccessLevel, Descriptor.Name);

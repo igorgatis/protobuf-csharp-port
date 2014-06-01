@@ -39,6 +39,14 @@ namespace Google.ProtocolBuffers.DescriptorProtos {
     internal static pb::FieldAccess.FieldAccessorTable<global::Google.ProtocolBuffers.DescriptorProtos.CSharpServiceOptions, global::Google.ProtocolBuffers.DescriptorProtos.CSharpServiceOptions.Builder> internal__static_google_protobuf_CSharpServiceOptions__FieldAccessorTable;
     internal static pbd::MessageDescriptor internal__static_google_protobuf_CSharpMethodOptions__Descriptor;
     internal static pb::FieldAccess.FieldAccessorTable<global::Google.ProtocolBuffers.DescriptorProtos.CSharpMethodOptions, global::Google.ProtocolBuffers.DescriptorProtos.CSharpMethodOptions.Builder> internal__static_google_protobuf_CSharpMethodOptions__FieldAccessorTable;
+    internal static pbd::MessageDescriptor internal__static_google_protobuf_DateTime__Descriptor;
+    internal static pb::FieldAccess.FieldAccessorTable<global::Google.ProtocolBuffers.DescriptorProtos.DateTime, global::Google.ProtocolBuffers.DescriptorProtos.DateTime.Builder> internal__static_google_protobuf_DateTime__FieldAccessorTable;
+    internal static pbd::MessageDescriptor internal__static_google_protobuf_DateTimeOffset__Descriptor;
+    internal static pb::FieldAccess.FieldAccessorTable<global::Google.ProtocolBuffers.DescriptorProtos.DateTimeOffset, global::Google.ProtocolBuffers.DescriptorProtos.DateTimeOffset.Builder> internal__static_google_protobuf_DateTimeOffset__FieldAccessorTable;
+    internal static pbd::MessageDescriptor internal__static_google_protobuf_Decimal__Descriptor;
+    internal static pb::FieldAccess.FieldAccessorTable<global::Google.ProtocolBuffers.DescriptorProtos.Decimal, global::Google.ProtocolBuffers.DescriptorProtos.Decimal.Builder> internal__static_google_protobuf_Decimal__FieldAccessorTable;
+    internal static pbd::MessageDescriptor internal__static_google_protobuf_Guid__Descriptor;
+    internal static pb::FieldAccess.FieldAccessorTable<global::Google.ProtocolBuffers.DescriptorProtos.Guid, global::Google.ProtocolBuffers.DescriptorProtos.Guid.Builder> internal__static_google_protobuf_Guid__FieldAccessorTable;
     #endregion
     #region Descriptor
     public static pbd::FileDescriptor Descriptor {
@@ -66,17 +74,21 @@ namespace Google.ProtocolBuffers.DescriptorProtos {
             "4gEgASgIOgVmYWxzZSIrChJDU2hhcnBGaWVsZE9wdGlvbnMSFQoNcHJvcGVy", 
             "dHlfbmFtZRgBIAEoCSIsChRDU2hhcnBTZXJ2aWNlT3B0aW9ucxIUCgxpbnRl", 
             "cmZhY2VfaWQYASABKAkiKgoTQ1NoYXJwTWV0aG9kT3B0aW9ucxITCgtkaXNw", 
-            "YXRjaF9pZBgBIAEoBSpLChFDU2hhcnBTZXJ2aWNlVHlwZRIICgROT05FEAAS", 
-            "CwoHR0VORVJJQxABEg0KCUlOVEVSRkFDRRACEhAKDElSUENESVNQQVRDSBAD", 
-            "Ol4KE2NzaGFycF9maWxlX29wdGlvbnMSHC5nb29nbGUucHJvdG9idWYuRmls", 
-            "ZU9wdGlvbnMY6AcgASgLMiIuZ29vZ2xlLnByb3RvYnVmLkNTaGFycEZpbGVP", 
-            "cHRpb25zOmEKFGNzaGFycF9maWVsZF9vcHRpb25zEh0uZ29vZ2xlLnByb3Rv", 
-            "YnVmLkZpZWxkT3B0aW9ucxjoByABKAsyIy5nb29nbGUucHJvdG9idWYuQ1No", 
-            "YXJwRmllbGRPcHRpb25zOmcKFmNzaGFycF9zZXJ2aWNlX29wdGlvbnMSHy5n", 
-            "b29nbGUucHJvdG9idWYuU2VydmljZU9wdGlvbnMY6AcgASgLMiUuZ29vZ2xl", 
-            "LnByb3RvYnVmLkNTaGFycFNlcnZpY2VPcHRpb25zOmQKFWNzaGFycF9tZXRo", 
-            "b2Rfb3B0aW9ucxIeLmdvb2dsZS5wcm90b2J1Zi5NZXRob2RPcHRpb25zGOgH", 
-          "IAEoCzIkLmdvb2dsZS5wcm90b2J1Zi5DU2hhcnBNZXRob2RPcHRpb25z"));
+            "YXRjaF9pZBgBIAEoBSIZCghEYXRlVGltZRINCgV0aWNrcxgBIAEoECI1Cg5E", 
+            "YXRlVGltZU9mZnNldBINCgV0aWNrcxgBIAEoEBIUCgxvZmZzZXRfdGlja3MY", 
+            "AiABKBAiOQoHRGVjaW1hbBIKCgJpMBgBIAEoDxIKCgJpMRgCIAEoDxIKCgJp", 
+            "MhgDIAEoDxIKCgJpMxgEIAEoDyIUCgRHdWlkEgwKBGJpdHMYASABKAwqSwoR", 
+            "Q1NoYXJwU2VydmljZVR5cGUSCAoETk9ORRAAEgsKB0dFTkVSSUMQARINCglJ", 
+            "TlRFUkZBQ0UQAhIQCgxJUlBDRElTUEFUQ0gQAzpeChNjc2hhcnBfZmlsZV9v", 
+            "cHRpb25zEhwuZ29vZ2xlLnByb3RvYnVmLkZpbGVPcHRpb25zGOgHIAEoCzIi", 
+            "Lmdvb2dsZS5wcm90b2J1Zi5DU2hhcnBGaWxlT3B0aW9uczphChRjc2hhcnBf", 
+            "ZmllbGRfb3B0aW9ucxIdLmdvb2dsZS5wcm90b2J1Zi5GaWVsZE9wdGlvbnMY", 
+            "6AcgASgLMiMuZ29vZ2xlLnByb3RvYnVmLkNTaGFycEZpZWxkT3B0aW9uczpn", 
+            "ChZjc2hhcnBfc2VydmljZV9vcHRpb25zEh8uZ29vZ2xlLnByb3RvYnVmLlNl", 
+            "cnZpY2VPcHRpb25zGOgHIAEoCzIlLmdvb2dsZS5wcm90b2J1Zi5DU2hhcnBT", 
+            "ZXJ2aWNlT3B0aW9uczpkChVjc2hhcnBfbWV0aG9kX29wdGlvbnMSHi5nb29n", 
+            "bGUucHJvdG9idWYuTWV0aG9kT3B0aW9ucxjoByABKAsyJC5nb29nbGUucHJv", 
+          "dG9idWYuQ1NoYXJwTWV0aG9kT3B0aW9ucw=="));
       pbd::FileDescriptor.InternalDescriptorAssigner assigner = delegate(pbd::FileDescriptor root) {
         descriptor = root;
         internal__static_google_protobuf_CSharpFileOptions__Descriptor = Descriptor.MessageTypes[0];
@@ -95,6 +107,22 @@ namespace Google.ProtocolBuffers.DescriptorProtos {
         internal__static_google_protobuf_CSharpMethodOptions__FieldAccessorTable = 
             new pb::FieldAccess.FieldAccessorTable<global::Google.ProtocolBuffers.DescriptorProtos.CSharpMethodOptions, global::Google.ProtocolBuffers.DescriptorProtos.CSharpMethodOptions.Builder>(internal__static_google_protobuf_CSharpMethodOptions__Descriptor,
                 new string[] { "DispatchId", });
+        internal__static_google_protobuf_DateTime__Descriptor = Descriptor.MessageTypes[4];
+        internal__static_google_protobuf_DateTime__FieldAccessorTable = 
+            new pb::FieldAccess.FieldAccessorTable<global::Google.ProtocolBuffers.DescriptorProtos.DateTime, global::Google.ProtocolBuffers.DescriptorProtos.DateTime.Builder>(internal__static_google_protobuf_DateTime__Descriptor,
+                new string[] { "Ticks", });
+        internal__static_google_protobuf_DateTimeOffset__Descriptor = Descriptor.MessageTypes[5];
+        internal__static_google_protobuf_DateTimeOffset__FieldAccessorTable = 
+            new pb::FieldAccess.FieldAccessorTable<global::Google.ProtocolBuffers.DescriptorProtos.DateTimeOffset, global::Google.ProtocolBuffers.DescriptorProtos.DateTimeOffset.Builder>(internal__static_google_protobuf_DateTimeOffset__Descriptor,
+                new string[] { "Ticks", "OffsetTicks", });
+        internal__static_google_protobuf_Decimal__Descriptor = Descriptor.MessageTypes[6];
+        internal__static_google_protobuf_Decimal__FieldAccessorTable = 
+            new pb::FieldAccess.FieldAccessorTable<global::Google.ProtocolBuffers.DescriptorProtos.Decimal, global::Google.ProtocolBuffers.DescriptorProtos.Decimal.Builder>(internal__static_google_protobuf_Decimal__Descriptor,
+                new string[] { "I0", "I1", "I2", "I3", });
+        internal__static_google_protobuf_Guid__Descriptor = Descriptor.MessageTypes[7];
+        internal__static_google_protobuf_Guid__FieldAccessorTable = 
+            new pb::FieldAccess.FieldAccessorTable<global::Google.ProtocolBuffers.DescriptorProtos.Guid, global::Google.ProtocolBuffers.DescriptorProtos.Guid.Builder>(internal__static_google_protobuf_Guid__Descriptor,
+                new string[] { "Bits", });
         global::Google.ProtocolBuffers.DescriptorProtos.CSharpOptions.CSharpFileOptions = pb::GeneratedSingleExtension<global::Google.ProtocolBuffers.DescriptorProtos.CSharpFileOptions>.CreateInstance(global::Google.ProtocolBuffers.DescriptorProtos.CSharpOptions.Descriptor.Extensions[0]);
         global::Google.ProtocolBuffers.DescriptorProtos.CSharpOptions.CSharpFieldOptions = pb::GeneratedSingleExtension<global::Google.ProtocolBuffers.DescriptorProtos.CSharpFieldOptions>.CreateInstance(global::Google.ProtocolBuffers.DescriptorProtos.CSharpOptions.Descriptor.Extensions[1]);
         global::Google.ProtocolBuffers.DescriptorProtos.CSharpOptions.CsharpServiceOptions = pb::GeneratedSingleExtension<global::Google.ProtocolBuffers.DescriptorProtos.CSharpServiceOptions>.CreateInstance(global::Google.ProtocolBuffers.DescriptorProtos.CSharpOptions.Descriptor.Extensions[2]);
@@ -1856,6 +1884,1259 @@ namespace Google.ProtocolBuffers.DescriptorProtos {
       }
     }
     static CSharpMethodOptions() {
+      object.ReferenceEquals(global::Google.ProtocolBuffers.DescriptorProtos.CSharpOptions.Descriptor, null);
+    }
+  }
+  
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class DateTime : pb::GeneratedMessage<DateTime, DateTime.Builder> {
+    private DateTime() { }
+    private static readonly DateTime defaultInstance = new DateTime().MakeReadOnly();
+    private static readonly string[] _dateTimeFieldNames = new string[] { "ticks" };
+    private static readonly uint[] _dateTimeFieldTags = new uint[] { 9 };
+    public static DateTime DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    public override DateTime DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override DateTime ThisMessage {
+      get { return this; }
+    }
+    
+    public static pbd::MessageDescriptor Descriptor {
+      get { return global::Google.ProtocolBuffers.DescriptorProtos.CSharpOptions.internal__static_google_protobuf_DateTime__Descriptor; }
+    }
+    
+    protected override pb::FieldAccess.FieldAccessorTable<DateTime, DateTime.Builder> InternalFieldAccessors {
+      get { return global::Google.ProtocolBuffers.DescriptorProtos.CSharpOptions.internal__static_google_protobuf_DateTime__FieldAccessorTable; }
+    }
+    
+    public const int TicksFieldNumber = 1;
+    private bool hasTicks;
+    private long ticks_;
+    public bool HasTicks {
+      get { return hasTicks; }
+    }
+    public long Ticks {
+      get { return ticks_; }
+    }
+    
+    public override bool IsInitialized {
+      get {
+        return true;
+      }
+    }
+    
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _dateTimeFieldNames;
+      if (hasTicks) {
+        output.WriteSFixed64(1, field_names[0], Ticks);
+      }
+      UnknownFields.WriteTo(output);
+    }
+    
+    private int memoizedSerializedSize = -1;
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasTicks) {
+          size += pb::CodedOutputStream.ComputeSFixed64Size(1, Ticks);
+        }
+        size += UnknownFields.SerializedSize;
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    public static DateTime ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    public static DateTime ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    public static DateTime ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    public static DateTime ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    public static DateTime ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    public static DateTime ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    public static DateTime ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    public static DateTime ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    public static DateTime ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    public static DateTime ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private DateTime MakeReadOnly() {
+      return this;
+    }
+    
+    public static Builder CreateBuilder() { return new Builder(); }
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    public static Builder CreateBuilder(DateTime prototype) {
+      return new Builder(prototype);
+    }
+    
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public sealed partial class Builder : pb::GeneratedBuilder<DateTime, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(DateTime cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private DateTime result;
+      
+      private DateTime PrepareBuilder() {
+        if (resultIsReadOnly) {
+          DateTime original = result;
+          result = new DateTime();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override DateTime MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override pbd::MessageDescriptor DescriptorForType {
+        get { return global::Google.ProtocolBuffers.DescriptorProtos.DateTime.Descriptor; }
+      }
+      
+      public override DateTime DefaultInstanceForType {
+        get { return global::Google.ProtocolBuffers.DescriptorProtos.DateTime.DefaultInstance; }
+      }
+      
+      public override DateTime BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessage other) {
+        if (other is DateTime) {
+          return MergeFrom((DateTime) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(DateTime other) {
+        if (other == global::Google.ProtocolBuffers.DescriptorProtos.DateTime.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasTicks) {
+          Ticks = other.Ticks;
+        }
+        this.MergeUnknownFields(other.UnknownFields);
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        pb::UnknownFieldSet.Builder unknownFields = null;
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_dateTimeFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _dateTimeFieldTags[field_ordinal];
+            else {
+              if (unknownFields == null) {
+                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+              }
+              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                if (unknownFields != null) {
+                  this.UnknownFields = unknownFields.Build();
+                }
+                return this;
+              }
+              if (unknownFields == null) {
+                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+              }
+              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 9: {
+              result.hasTicks = input.ReadSFixed64(ref result.ticks_);
+              break;
+            }
+          }
+        }
+        
+        if (unknownFields != null) {
+          this.UnknownFields = unknownFields.Build();
+        }
+        return this;
+      }
+      
+      
+      public bool HasTicks {
+        get { return result.hasTicks; }
+      }
+      public long Ticks {
+        get { return result.Ticks; }
+        set { SetTicks(value); }
+      }
+      public Builder SetTicks(long value) {
+        PrepareBuilder();
+        result.hasTicks = true;
+        result.ticks_ = value;
+        return this;
+      }
+      public Builder ClearTicks() {
+        PrepareBuilder();
+        result.hasTicks = false;
+        result.ticks_ = 0;
+        return this;
+      }
+    }
+    static DateTime() {
+      object.ReferenceEquals(global::Google.ProtocolBuffers.DescriptorProtos.CSharpOptions.Descriptor, null);
+    }
+  }
+  
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class DateTimeOffset : pb::GeneratedMessage<DateTimeOffset, DateTimeOffset.Builder> {
+    private DateTimeOffset() { }
+    private static readonly DateTimeOffset defaultInstance = new DateTimeOffset().MakeReadOnly();
+    private static readonly string[] _dateTimeOffsetFieldNames = new string[] { "offset_ticks", "ticks" };
+    private static readonly uint[] _dateTimeOffsetFieldTags = new uint[] { 17, 9 };
+    public static DateTimeOffset DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    public override DateTimeOffset DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override DateTimeOffset ThisMessage {
+      get { return this; }
+    }
+    
+    public static pbd::MessageDescriptor Descriptor {
+      get { return global::Google.ProtocolBuffers.DescriptorProtos.CSharpOptions.internal__static_google_protobuf_DateTimeOffset__Descriptor; }
+    }
+    
+    protected override pb::FieldAccess.FieldAccessorTable<DateTimeOffset, DateTimeOffset.Builder> InternalFieldAccessors {
+      get { return global::Google.ProtocolBuffers.DescriptorProtos.CSharpOptions.internal__static_google_protobuf_DateTimeOffset__FieldAccessorTable; }
+    }
+    
+    public const int TicksFieldNumber = 1;
+    private bool hasTicks;
+    private long ticks_;
+    public bool HasTicks {
+      get { return hasTicks; }
+    }
+    public long Ticks {
+      get { return ticks_; }
+    }
+    
+    public const int OffsetTicksFieldNumber = 2;
+    private bool hasOffsetTicks;
+    private long offsetTicks_;
+    public bool HasOffsetTicks {
+      get { return hasOffsetTicks; }
+    }
+    public long OffsetTicks {
+      get { return offsetTicks_; }
+    }
+    
+    public override bool IsInitialized {
+      get {
+        return true;
+      }
+    }
+    
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _dateTimeOffsetFieldNames;
+      if (hasTicks) {
+        output.WriteSFixed64(1, field_names[1], Ticks);
+      }
+      if (hasOffsetTicks) {
+        output.WriteSFixed64(2, field_names[0], OffsetTicks);
+      }
+      UnknownFields.WriteTo(output);
+    }
+    
+    private int memoizedSerializedSize = -1;
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasTicks) {
+          size += pb::CodedOutputStream.ComputeSFixed64Size(1, Ticks);
+        }
+        if (hasOffsetTicks) {
+          size += pb::CodedOutputStream.ComputeSFixed64Size(2, OffsetTicks);
+        }
+        size += UnknownFields.SerializedSize;
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    public static DateTimeOffset ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    public static DateTimeOffset ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    public static DateTimeOffset ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    public static DateTimeOffset ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    public static DateTimeOffset ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    public static DateTimeOffset ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    public static DateTimeOffset ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    public static DateTimeOffset ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    public static DateTimeOffset ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    public static DateTimeOffset ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private DateTimeOffset MakeReadOnly() {
+      return this;
+    }
+    
+    public static Builder CreateBuilder() { return new Builder(); }
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    public static Builder CreateBuilder(DateTimeOffset prototype) {
+      return new Builder(prototype);
+    }
+    
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public sealed partial class Builder : pb::GeneratedBuilder<DateTimeOffset, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(DateTimeOffset cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private DateTimeOffset result;
+      
+      private DateTimeOffset PrepareBuilder() {
+        if (resultIsReadOnly) {
+          DateTimeOffset original = result;
+          result = new DateTimeOffset();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override DateTimeOffset MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override pbd::MessageDescriptor DescriptorForType {
+        get { return global::Google.ProtocolBuffers.DescriptorProtos.DateTimeOffset.Descriptor; }
+      }
+      
+      public override DateTimeOffset DefaultInstanceForType {
+        get { return global::Google.ProtocolBuffers.DescriptorProtos.DateTimeOffset.DefaultInstance; }
+      }
+      
+      public override DateTimeOffset BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessage other) {
+        if (other is DateTimeOffset) {
+          return MergeFrom((DateTimeOffset) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(DateTimeOffset other) {
+        if (other == global::Google.ProtocolBuffers.DescriptorProtos.DateTimeOffset.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasTicks) {
+          Ticks = other.Ticks;
+        }
+        if (other.HasOffsetTicks) {
+          OffsetTicks = other.OffsetTicks;
+        }
+        this.MergeUnknownFields(other.UnknownFields);
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        pb::UnknownFieldSet.Builder unknownFields = null;
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_dateTimeOffsetFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _dateTimeOffsetFieldTags[field_ordinal];
+            else {
+              if (unknownFields == null) {
+                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+              }
+              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                if (unknownFields != null) {
+                  this.UnknownFields = unknownFields.Build();
+                }
+                return this;
+              }
+              if (unknownFields == null) {
+                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+              }
+              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 9: {
+              result.hasTicks = input.ReadSFixed64(ref result.ticks_);
+              break;
+            }
+            case 17: {
+              result.hasOffsetTicks = input.ReadSFixed64(ref result.offsetTicks_);
+              break;
+            }
+          }
+        }
+        
+        if (unknownFields != null) {
+          this.UnknownFields = unknownFields.Build();
+        }
+        return this;
+      }
+      
+      
+      public bool HasTicks {
+        get { return result.hasTicks; }
+      }
+      public long Ticks {
+        get { return result.Ticks; }
+        set { SetTicks(value); }
+      }
+      public Builder SetTicks(long value) {
+        PrepareBuilder();
+        result.hasTicks = true;
+        result.ticks_ = value;
+        return this;
+      }
+      public Builder ClearTicks() {
+        PrepareBuilder();
+        result.hasTicks = false;
+        result.ticks_ = 0;
+        return this;
+      }
+      
+      public bool HasOffsetTicks {
+        get { return result.hasOffsetTicks; }
+      }
+      public long OffsetTicks {
+        get { return result.OffsetTicks; }
+        set { SetOffsetTicks(value); }
+      }
+      public Builder SetOffsetTicks(long value) {
+        PrepareBuilder();
+        result.hasOffsetTicks = true;
+        result.offsetTicks_ = value;
+        return this;
+      }
+      public Builder ClearOffsetTicks() {
+        PrepareBuilder();
+        result.hasOffsetTicks = false;
+        result.offsetTicks_ = 0;
+        return this;
+      }
+    }
+    static DateTimeOffset() {
+      object.ReferenceEquals(global::Google.ProtocolBuffers.DescriptorProtos.CSharpOptions.Descriptor, null);
+    }
+  }
+  
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class Decimal : pb::GeneratedMessage<Decimal, Decimal.Builder> {
+    private Decimal() { }
+    private static readonly Decimal defaultInstance = new Decimal().MakeReadOnly();
+    private static readonly string[] _decimalFieldNames = new string[] { "i0", "i1", "i2", "i3" };
+    private static readonly uint[] _decimalFieldTags = new uint[] { 13, 21, 29, 37 };
+    public static Decimal DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    public override Decimal DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override Decimal ThisMessage {
+      get { return this; }
+    }
+    
+    public static pbd::MessageDescriptor Descriptor {
+      get { return global::Google.ProtocolBuffers.DescriptorProtos.CSharpOptions.internal__static_google_protobuf_Decimal__Descriptor; }
+    }
+    
+    protected override pb::FieldAccess.FieldAccessorTable<Decimal, Decimal.Builder> InternalFieldAccessors {
+      get { return global::Google.ProtocolBuffers.DescriptorProtos.CSharpOptions.internal__static_google_protobuf_Decimal__FieldAccessorTable; }
+    }
+    
+    public const int I0FieldNumber = 1;
+    private bool hasI0;
+    private int i0_;
+    public bool HasI0 {
+      get { return hasI0; }
+    }
+    public int I0 {
+      get { return i0_; }
+    }
+    
+    public const int I1FieldNumber = 2;
+    private bool hasI1;
+    private int i1_;
+    public bool HasI1 {
+      get { return hasI1; }
+    }
+    public int I1 {
+      get { return i1_; }
+    }
+    
+    public const int I2FieldNumber = 3;
+    private bool hasI2;
+    private int i2_;
+    public bool HasI2 {
+      get { return hasI2; }
+    }
+    public int I2 {
+      get { return i2_; }
+    }
+    
+    public const int I3FieldNumber = 4;
+    private bool hasI3;
+    private int i3_;
+    public bool HasI3 {
+      get { return hasI3; }
+    }
+    public int I3 {
+      get { return i3_; }
+    }
+    
+    public override bool IsInitialized {
+      get {
+        return true;
+      }
+    }
+    
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _decimalFieldNames;
+      if (hasI0) {
+        output.WriteSFixed32(1, field_names[0], I0);
+      }
+      if (hasI1) {
+        output.WriteSFixed32(2, field_names[1], I1);
+      }
+      if (hasI2) {
+        output.WriteSFixed32(3, field_names[2], I2);
+      }
+      if (hasI3) {
+        output.WriteSFixed32(4, field_names[3], I3);
+      }
+      UnknownFields.WriteTo(output);
+    }
+    
+    private int memoizedSerializedSize = -1;
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasI0) {
+          size += pb::CodedOutputStream.ComputeSFixed32Size(1, I0);
+        }
+        if (hasI1) {
+          size += pb::CodedOutputStream.ComputeSFixed32Size(2, I1);
+        }
+        if (hasI2) {
+          size += pb::CodedOutputStream.ComputeSFixed32Size(3, I2);
+        }
+        if (hasI3) {
+          size += pb::CodedOutputStream.ComputeSFixed32Size(4, I3);
+        }
+        size += UnknownFields.SerializedSize;
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    public static Decimal ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    public static Decimal ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    public static Decimal ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    public static Decimal ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    public static Decimal ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    public static Decimal ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    public static Decimal ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    public static Decimal ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    public static Decimal ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    public static Decimal ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private Decimal MakeReadOnly() {
+      return this;
+    }
+    
+    public static Builder CreateBuilder() { return new Builder(); }
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    public static Builder CreateBuilder(Decimal prototype) {
+      return new Builder(prototype);
+    }
+    
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public sealed partial class Builder : pb::GeneratedBuilder<Decimal, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(Decimal cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private Decimal result;
+      
+      private Decimal PrepareBuilder() {
+        if (resultIsReadOnly) {
+          Decimal original = result;
+          result = new Decimal();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override Decimal MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override pbd::MessageDescriptor DescriptorForType {
+        get { return global::Google.ProtocolBuffers.DescriptorProtos.Decimal.Descriptor; }
+      }
+      
+      public override Decimal DefaultInstanceForType {
+        get { return global::Google.ProtocolBuffers.DescriptorProtos.Decimal.DefaultInstance; }
+      }
+      
+      public override Decimal BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessage other) {
+        if (other is Decimal) {
+          return MergeFrom((Decimal) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(Decimal other) {
+        if (other == global::Google.ProtocolBuffers.DescriptorProtos.Decimal.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasI0) {
+          I0 = other.I0;
+        }
+        if (other.HasI1) {
+          I1 = other.I1;
+        }
+        if (other.HasI2) {
+          I2 = other.I2;
+        }
+        if (other.HasI3) {
+          I3 = other.I3;
+        }
+        this.MergeUnknownFields(other.UnknownFields);
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        pb::UnknownFieldSet.Builder unknownFields = null;
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_decimalFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _decimalFieldTags[field_ordinal];
+            else {
+              if (unknownFields == null) {
+                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+              }
+              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                if (unknownFields != null) {
+                  this.UnknownFields = unknownFields.Build();
+                }
+                return this;
+              }
+              if (unknownFields == null) {
+                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+              }
+              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 13: {
+              result.hasI0 = input.ReadSFixed32(ref result.i0_);
+              break;
+            }
+            case 21: {
+              result.hasI1 = input.ReadSFixed32(ref result.i1_);
+              break;
+            }
+            case 29: {
+              result.hasI2 = input.ReadSFixed32(ref result.i2_);
+              break;
+            }
+            case 37: {
+              result.hasI3 = input.ReadSFixed32(ref result.i3_);
+              break;
+            }
+          }
+        }
+        
+        if (unknownFields != null) {
+          this.UnknownFields = unknownFields.Build();
+        }
+        return this;
+      }
+      
+      
+      public bool HasI0 {
+        get { return result.hasI0; }
+      }
+      public int I0 {
+        get { return result.I0; }
+        set { SetI0(value); }
+      }
+      public Builder SetI0(int value) {
+        PrepareBuilder();
+        result.hasI0 = true;
+        result.i0_ = value;
+        return this;
+      }
+      public Builder ClearI0() {
+        PrepareBuilder();
+        result.hasI0 = false;
+        result.i0_ = 0;
+        return this;
+      }
+      
+      public bool HasI1 {
+        get { return result.hasI1; }
+      }
+      public int I1 {
+        get { return result.I1; }
+        set { SetI1(value); }
+      }
+      public Builder SetI1(int value) {
+        PrepareBuilder();
+        result.hasI1 = true;
+        result.i1_ = value;
+        return this;
+      }
+      public Builder ClearI1() {
+        PrepareBuilder();
+        result.hasI1 = false;
+        result.i1_ = 0;
+        return this;
+      }
+      
+      public bool HasI2 {
+        get { return result.hasI2; }
+      }
+      public int I2 {
+        get { return result.I2; }
+        set { SetI2(value); }
+      }
+      public Builder SetI2(int value) {
+        PrepareBuilder();
+        result.hasI2 = true;
+        result.i2_ = value;
+        return this;
+      }
+      public Builder ClearI2() {
+        PrepareBuilder();
+        result.hasI2 = false;
+        result.i2_ = 0;
+        return this;
+      }
+      
+      public bool HasI3 {
+        get { return result.hasI3; }
+      }
+      public int I3 {
+        get { return result.I3; }
+        set { SetI3(value); }
+      }
+      public Builder SetI3(int value) {
+        PrepareBuilder();
+        result.hasI3 = true;
+        result.i3_ = value;
+        return this;
+      }
+      public Builder ClearI3() {
+        PrepareBuilder();
+        result.hasI3 = false;
+        result.i3_ = 0;
+        return this;
+      }
+    }
+    static Decimal() {
+      object.ReferenceEquals(global::Google.ProtocolBuffers.DescriptorProtos.CSharpOptions.Descriptor, null);
+    }
+  }
+  
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class Guid : pb::GeneratedMessage<Guid, Guid.Builder> {
+    private Guid() { }
+    private static readonly Guid defaultInstance = new Guid().MakeReadOnly();
+    private static readonly string[] _guidFieldNames = new string[] { "bits" };
+    private static readonly uint[] _guidFieldTags = new uint[] { 10 };
+    public static Guid DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    public override Guid DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override Guid ThisMessage {
+      get { return this; }
+    }
+    
+    public static pbd::MessageDescriptor Descriptor {
+      get { return global::Google.ProtocolBuffers.DescriptorProtos.CSharpOptions.internal__static_google_protobuf_Guid__Descriptor; }
+    }
+    
+    protected override pb::FieldAccess.FieldAccessorTable<Guid, Guid.Builder> InternalFieldAccessors {
+      get { return global::Google.ProtocolBuffers.DescriptorProtos.CSharpOptions.internal__static_google_protobuf_Guid__FieldAccessorTable; }
+    }
+    
+    public const int BitsFieldNumber = 1;
+    private bool hasBits;
+    private pb::ByteString bits_ = pb::ByteString.Empty;
+    public bool HasBits {
+      get { return hasBits; }
+    }
+    public pb::ByteString Bits {
+      get { return bits_; }
+    }
+    
+    public override bool IsInitialized {
+      get {
+        return true;
+      }
+    }
+    
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _guidFieldNames;
+      if (hasBits) {
+        output.WriteBytes(1, field_names[0], Bits);
+      }
+      UnknownFields.WriteTo(output);
+    }
+    
+    private int memoizedSerializedSize = -1;
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasBits) {
+          size += pb::CodedOutputStream.ComputeBytesSize(1, Bits);
+        }
+        size += UnknownFields.SerializedSize;
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    public static Guid ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    public static Guid ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    public static Guid ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    public static Guid ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    public static Guid ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    public static Guid ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    public static Guid ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    public static Guid ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    public static Guid ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    public static Guid ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private Guid MakeReadOnly() {
+      return this;
+    }
+    
+    public static Builder CreateBuilder() { return new Builder(); }
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    public static Builder CreateBuilder(Guid prototype) {
+      return new Builder(prototype);
+    }
+    
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public sealed partial class Builder : pb::GeneratedBuilder<Guid, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(Guid cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private Guid result;
+      
+      private Guid PrepareBuilder() {
+        if (resultIsReadOnly) {
+          Guid original = result;
+          result = new Guid();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override Guid MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override pbd::MessageDescriptor DescriptorForType {
+        get { return global::Google.ProtocolBuffers.DescriptorProtos.Guid.Descriptor; }
+      }
+      
+      public override Guid DefaultInstanceForType {
+        get { return global::Google.ProtocolBuffers.DescriptorProtos.Guid.DefaultInstance; }
+      }
+      
+      public override Guid BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessage other) {
+        if (other is Guid) {
+          return MergeFrom((Guid) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(Guid other) {
+        if (other == global::Google.ProtocolBuffers.DescriptorProtos.Guid.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasBits) {
+          Bits = other.Bits;
+        }
+        this.MergeUnknownFields(other.UnknownFields);
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        pb::UnknownFieldSet.Builder unknownFields = null;
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_guidFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _guidFieldTags[field_ordinal];
+            else {
+              if (unknownFields == null) {
+                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+              }
+              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                if (unknownFields != null) {
+                  this.UnknownFields = unknownFields.Build();
+                }
+                return this;
+              }
+              if (unknownFields == null) {
+                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+              }
+              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 10: {
+              result.hasBits = input.ReadBytes(ref result.bits_);
+              break;
+            }
+          }
+        }
+        
+        if (unknownFields != null) {
+          this.UnknownFields = unknownFields.Build();
+        }
+        return this;
+      }
+      
+      
+      public bool HasBits {
+        get { return result.hasBits; }
+      }
+      public pb::ByteString Bits {
+        get { return result.Bits; }
+        set { SetBits(value); }
+      }
+      public Builder SetBits(pb::ByteString value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.hasBits = true;
+        result.bits_ = value;
+        return this;
+      }
+      public Builder ClearBits() {
+        PrepareBuilder();
+        result.hasBits = false;
+        result.bits_ = pb::ByteString.Empty;
+        return this;
+      }
+    }
+    static Guid() {
       object.ReferenceEquals(global::Google.ProtocolBuffers.DescriptorProtos.CSharpOptions.Descriptor, null);
     }
   }

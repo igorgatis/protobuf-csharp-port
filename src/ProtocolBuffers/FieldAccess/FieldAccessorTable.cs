@@ -31,6 +31,7 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 using System;
 using Google.ProtocolBuffers.Descriptors;
+using Google.ProtocolBuffers.FieldAccess;
 
 namespace Google.ProtocolBuffers.FieldAccess
 {
@@ -79,6 +80,8 @@ namespace Google.ProtocolBuffers.FieldAccess
         /// </summary>   
         private static IFieldAccessor<TMessage, TBuilder> CreateAccessor(FieldDescriptor field, string name)
         {
+            var pluginAccessor = Plugins.CSharpTypes.CreateAccessor<TMessage, TBuilder>(field, name);
+            if (pluginAccessor != null) return pluginAccessor;
             if (field.IsRepeated)
             {
                 switch (field.MappedType)

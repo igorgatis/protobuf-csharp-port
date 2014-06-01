@@ -57,6 +57,8 @@ namespace Google.ProtocolBuffers.ProtoGen
 
         public static IFieldSourceGenerator CreateFieldGenerator(FieldDescriptor field, int fieldOrdinal)
         {
+            var pluginGenerator = Plugins.CSharpFieldGenerator.CreateFieldGenerator(field, fieldOrdinal);
+            if (pluginGenerator != null) return pluginGenerator;
             switch (field.MappedType)
             {
                 case MappedType.Message:

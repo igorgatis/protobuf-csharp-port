@@ -113,3 +113,32 @@ message CSharpMethodOptions {
 extend MethodOptions {
   optional CSharpMethodOptions csharp_method_options = 1000;
 }
+
+// DateTime stored as Ticks.
+// http://msdn.microsoft.com/en-us/library/system.datetime.ticks(v=vs.110).aspx
+message DateTime {
+  optional sfixed64 ticks = 1;
+}
+
+// DateTimeOffset stored as Ticks and TimeSpan Ticks.
+// http://msdn.microsoft.com/en-us/library/system.datetimeoffset.ticks.aspx
+// http://msdn.microsoft.com/en-us/library/system.timespan.ticks.aspx
+message DateTimeOffset {
+  optional sfixed64 ticks = 1;
+  optional sfixed64 offset_ticks = 2;
+}
+
+// Decimal: 96-bit precision decimal type.
+// http://msdn.microsoft.com/en-us/library/system.decimal.getbits.aspx
+message Decimal {
+  optional sfixed32 i0 = 1;
+  optional sfixed32 i1 = 2;
+  optional sfixed32 i2 = 3;
+  optional sfixed32 i3 = 4;
+}
+
+// GUID stores as 16 bytes array.
+// http://msdn.microsoft.com/en-us/library/90ck37x3(v=vs.110).aspx
+message Guid {
+  optional bytes bits = 1;
+}

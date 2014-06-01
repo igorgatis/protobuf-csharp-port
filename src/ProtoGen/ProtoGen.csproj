@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Plugins\CSharpFieldGenerator.cs" />
+    <Compile Include="Plugins\RepeatedCSharpFieldGenerator.cs" />
     <Compile Include="DescriptorUtil.cs" />
     <Compile Include="EnumFieldGenerator.cs" />
     <Compile Include="EnumGenerator.cs" />

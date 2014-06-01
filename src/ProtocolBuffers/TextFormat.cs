@@ -168,6 +168,8 @@ namespace Google.ProtocolBuffers
                 }
             }
 
+            if (Plugins.CSharpTypes.PrintFieldValue(field, value, generator)) return;
+
             if (field.MappedType == MappedType.Message)
             {
                 generator.Print(" {\n");
@@ -762,7 +764,11 @@ namespace Google.ProtocolBuffers
 
             object value = null;
 
-            if (field.MappedType == MappedType.Message)
+            if (Plugins.CSharpTypes.ParseFieldValue(tokenizer, field, out value))
+            {
+                // Nothing to do.
+            }
+            else if (field.MappedType == MappedType.Message)
             {
                 tokenizer.TryConsume(":"); // optional
 
