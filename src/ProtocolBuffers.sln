@@ -1,10 +1,13 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "proto", "proto", "{1F896D5C-5FC2-4671-9216-781CB8187EC7}"
 	ProjectSection(SolutionItems) = preProject
 		..\protos\tutorial\addressbook.proto = ..\protos\tutorial\addressbook.proto
 		..\protos\google\protobuf\csharp_options.proto = ..\protos\google\protobuf\csharp_options.proto
 		..\protos\google\protobuf\descriptor.proto = ..\protos\google\protobuf\descriptor.proto
+		..\protos\google\protobuf\compiler\plugin.proto = ..\protos\google\protobuf\compiler\plugin.proto
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "unittest", "unittest", "{C8D3015A-EA39-4F03-AEEC-3FF1F2087A12}"
@@ -87,6 +90,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "benchmarks", "benchmarks", 
 		..\protos\benchmarks\google_size.proto = ..\protos\benchmarks\google_size.proto
 		..\protos\benchmarks\google_speed.proto = ..\protos\benchmarks\google_speed.proto
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "protoc-gen-cs", "ProtoGen\protoc-gen-cs.csproj", "{250ADE34-82FD-4BAE-86D5-985FBE589C4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -174,6 +179,14 @@ Global
 		{E067A59D-9D0A-4A1F-92B1-38E4457241D1}.Release_Silverlight|Any CPU.ActiveCfg = Release|Any CPU
 		{E067A59D-9D0A-4A1F-92B1-38E4457241D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E067A59D-9D0A-4A1F-92B1-38E4457241D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{250ADE34-82FD-4BAE-86D5-985FBE589C4B}.Debug_Silverlight|Any CPU.ActiveCfg = Debug|Any CPU
+		{250ADE34-82FD-4BAE-86D5-985FBE589C4B}.Debug_Silverlight|Any CPU.Build.0 = Debug|Any CPU
+		{250ADE34-82FD-4BAE-86D5-985FBE589C4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{250ADE34-82FD-4BAE-86D5-985FBE589C4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{250ADE34-82FD-4BAE-86D5-985FBE589C4B}.Release_Silverlight|Any CPU.ActiveCfg = Release|Any CPU
+		{250ADE34-82FD-4BAE-86D5-985FBE589C4B}.Release_Silverlight|Any CPU.Build.0 = Release|Any CPU
+		{250ADE34-82FD-4BAE-86D5-985FBE589C4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{250ADE34-82FD-4BAE-86D5-985FBE589C4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
