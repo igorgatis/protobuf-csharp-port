@@ -9,7 +9,7 @@ Branches
 There are three kinds of branches:
 
  * **master** branch is verbatim copy of the original project (it even includes mercurial files).
- * **issueXX** branches are branches derived from master with changes to implement Issue XX from [list of issues](https://code.google.com/p/protobuf-csharp-port/issues/list)
+ * **issueXX** branches are derived from master with changes that fixes Issue XX from [list of issues](https://code.google.com/p/protobuf-csharp-port/issues/list)
    * [Issue78](https://code.google.com/p/protobuf-csharp-port/issues/detail?id=78): adds support for C# native types: decimal, DateTime, DateTimeOffset and Guid.
    * [Issue90](https://code.google.com/p/protobuf-csharp-port/issues/detail?id=90): protoc-gen-cs: protoc plugin for protobuf-csharp-port.
 
