@@ -47,6 +47,8 @@ namespace Google.ProtocolBuffers.ProtoGen
         {
             // Hack to make sure everything's initialized
             DescriptorProtoFile.Descriptor.ToString();
+            ExtensionRegistry extensionRegistry = ExtensionRegistry.CreateInstance();
+            CSharpOptions.RegisterAllExtensions(extensionRegistry);
 
             CodeGeneratorRequest request;
             var response = new CodeGeneratorResponse.Builder();
@@ -54,7 +56,7 @@ namespace Google.ProtocolBuffers.ProtoGen
             {
                 using (var input = Console.OpenStandardInput())
                 {
-                    request = CodeGeneratorRequest.ParseFrom(input);
+                    request = CodeGeneratorRequest.ParseFrom(input, extensionRegistry);
                 }
                 Run(request, response);
             }
