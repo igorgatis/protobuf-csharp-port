@@ -59,6 +59,7 @@
     <Compile Include="ISourceGenerator.cs" />
     <Compile Include="MessageFieldGenerator.cs" />
     <Compile Include="MessageGenerator.cs" />
+    <Compile Include="PluginProtoFile.cs" />
     <Compile Include="PrimitiveFieldGenerator.cs" />
     <Compile Include="ProgramPreprocess.cs" />
     <Compile Include="RepeatedEnumFieldGenerator.cs" />
