@@ -12,7 +12,7 @@ using System.Collections.Generic;
 
 namespace Google.ProtocolBuffers.ProtoGen
 {
-    internal class ProtocGenCs
+    public static class ProtocGenCs
     {
         internal static void Run(CodeGeneratorRequest request, CodeGeneratorResponse.Builder response)
         {
@@ -43,7 +43,7 @@ namespace Google.ProtocolBuffers.ProtoGen
             generator.Generate(request, response);
         }
 
-        internal static int Main(string[] args)
+        public static int Main(string[] args)
         {
             // Hack to make sure everything's initialized
             DescriptorProtoFile.Descriptor.ToString();

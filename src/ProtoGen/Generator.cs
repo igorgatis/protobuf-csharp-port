@@ -66,36 +66,6 @@ namespace Google.ProtocolBuffers.ProtoGen
             return new Generator(options);
         }
 
-        public void Generate()
-        {
-            var request = new CodeGeneratorRequest.Builder();
-            foreach (string inputFile in options.InputFiles)
-            {
-                ExtensionRegistry extensionRegistry = ExtensionRegistry.CreateInstance();
-                CSharpOptions.RegisterAllExtensions(extensionRegistry);
-                using (Stream inputStream = File.OpenRead(inputFile))
-                {
-                    var fileSet = FileDescriptorSet.ParseFrom(inputStream, extensionRegistry);
-                    foreach (var fileProto in fileSet.FileList)
-                    {
-                        request.AddFileToGenerate(fileProto.Name);
-                        request.AddProtoFile(fileProto);
-                    }
-                }
-            }
-
-            var response = new CodeGeneratorResponse.Builder();
-            Generate(request.Build(), response);
-            if (response.HasError)
-            {
-                throw new Exception(response.Error);
-            }
-            foreach (var file in response.FileList)
-            {
-                File.WriteAllText(file.Name, file.Content);
-            }
-        }
-
         public void Generate(CodeGeneratorRequest request, CodeGeneratorResponse.Builder response)
         {
             IList<FileDescriptor> descriptors = ConvertDescriptors(options.FileOptions, request.ProtoFileList);

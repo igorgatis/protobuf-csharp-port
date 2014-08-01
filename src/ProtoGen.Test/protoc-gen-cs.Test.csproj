@@ -7,11 +7,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C268DA4C-4004-47DA-AF23-44C983281A68}</ProjectGuid>
+    <ProjectGuid>{C1024C9C-8176-48C3-B547-B9F6DF6B80A6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Google.ProtocolBuffers.ProtoGen</RootNamespace>
-    <AssemblyName>Google.ProtocolBuffers.ProtoGen.Test</AssemblyName>
+    <AssemblyName>protoc-gen-cs.Test</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -51,19 +51,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DependencyResolutionTest.cs" />
+    <Compile Include="ProtocGenCsUnittests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TempFile.cs" />
-    <Compile Include="TestPreprocessing.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProtocolBuffers\ProtocolBuffers.csproj">
-      <Project>{6908BDCE-D925-43F3-94AC-A531E6DF2591}</Project>
+      <Project>{6908bdce-d925-43f3-94ac-a531e6df2591}</Project>
       <Name>ProtocolBuffers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ProtoGen\ProtoGen.csproj">
-      <Project>{250ADE34-82FD-4BAE-86D5-985FBE589C4A}</Project>
-      <Name>ProtoGen</Name>
+    <ProjectReference Include="..\ProtoGen\protoc-gen-cs.csproj">
+      <Project>{250ade34-82fd-4bae-86d5-985fbe589c4b}</Project>
+      <Name>protoc-gen-cs</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
