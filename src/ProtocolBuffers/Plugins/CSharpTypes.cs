@@ -59,13 +59,13 @@ namespace Google.ProtocolBuffers.Plugins
                 string name = field.MessageType.FullName;
                 switch (name)
                 {
-                    case "google.protobuf.DateTime":
+                    case "csharp.DateTime":
                         return CSharpType.DateTime;
-                    case "google.protobuf.DateTimeOffset":
+                    case "csharp.DateTimeOffset":
                         return CSharpType.DateTimeOffset;
-                    case "google.protobuf.Decimal":
+                    case "csharp.Decimal":
                         return CSharpType.Decimal;
-                    case "google.protobuf.Guid":
+                    case "csharp.Guid":
                         return CSharpType.Guid;
                 }
             }
