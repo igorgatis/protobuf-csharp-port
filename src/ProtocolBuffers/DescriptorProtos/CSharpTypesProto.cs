@@ -16,64 +16,18 @@ namespace CSharp {
     }
     #endregion
     #region Static variables
-    internal static pbd::MessageDescriptor internal__static_csharp_DateTime__Descriptor;
-    internal static pb::FieldAccess.FieldAccessorTable<global::CSharp.DateTime, global::CSharp.DateTime.Builder> internal__static_csharp_DateTime__FieldAccessorTable;
-    internal static pbd::MessageDescriptor internal__static_csharp_DateTimeOffset__Descriptor;
-    internal static pb::FieldAccess.FieldAccessorTable<global::CSharp.DateTimeOffset, global::CSharp.DateTimeOffset.Builder> internal__static_csharp_DateTimeOffset__FieldAccessorTable;
-    internal static pbd::MessageDescriptor internal__static_csharp_Decimal__Descriptor;
-    internal static pb::FieldAccess.FieldAccessorTable<global::CSharp.Decimal, global::CSharp.Decimal.Builder> internal__static_csharp_Decimal__FieldAccessorTable;
-    internal static pbd::MessageDescriptor internal__static_csharp_Guid__Descriptor;
-    internal static pb::FieldAccess.FieldAccessorTable<global::CSharp.Guid, global::CSharp.Guid.Builder> internal__static_csharp_Guid__FieldAccessorTable;
     #endregion
-    #region Descriptor
-    public static pbd::FileDescriptor Descriptor {
-      get { return descriptor; }
-    }
-    private static pbd::FileDescriptor descriptor;
-    
+    #region Extensions
+    internal static readonly object Descriptor;
     static CSharpTypesProto() {
-      byte[] descriptorData = global::System.Convert.FromBase64String(
-          string.Concat(
-            "Chljc2hhcnAvY3NoYXJwX3R5cGVzLnByb3RvEgZjc2hhcnAaJGdvb2dsZS9w", 
-            "cm90b2J1Zi9jc2hhcnBfb3B0aW9ucy5wcm90byIZCghEYXRlVGltZRINCgV0", 
-            "aWNrcxgBIAEoECI1Cg5EYXRlVGltZU9mZnNldBINCgV0aWNrcxgBIAEoEBIU", 
-            "CgxvZmZzZXRfdGlja3MYAiABKBAiOQoHRGVjaW1hbBIKCgJpMBgBIAEoDxIK", 
-            "CgJpMRgCIAEoDxIKCgJpMhgDIAEoDxIKCgJpMxgEIAEoDyIUCgRHdWlkEgwK", 
-          "BGJpdHMYASABKAxCHcI+GgoGQ1NoYXJwEhBDU2hhcnBUeXBlc1Byb3Rv"));
-      pbd::FileDescriptor.InternalDescriptorAssigner assigner = delegate(pbd::FileDescriptor root) {
-        descriptor = root;
-        internal__static_csharp_DateTime__Descriptor = Descriptor.MessageTypes[0];
-        internal__static_csharp_DateTime__FieldAccessorTable = 
-            new pb::FieldAccess.FieldAccessorTable<global::CSharp.DateTime, global::CSharp.DateTime.Builder>(internal__static_csharp_DateTime__Descriptor,
-                new string[] { "Ticks", });
-        internal__static_csharp_DateTimeOffset__Descriptor = Descriptor.MessageTypes[1];
-        internal__static_csharp_DateTimeOffset__FieldAccessorTable = 
-            new pb::FieldAccess.FieldAccessorTable<global::CSharp.DateTimeOffset, global::CSharp.DateTimeOffset.Builder>(internal__static_csharp_DateTimeOffset__Descriptor,
-                new string[] { "Ticks", "OffsetTicks", });
-        internal__static_csharp_Decimal__Descriptor = Descriptor.MessageTypes[2];
-        internal__static_csharp_Decimal__FieldAccessorTable = 
-            new pb::FieldAccess.FieldAccessorTable<global::CSharp.Decimal, global::CSharp.Decimal.Builder>(internal__static_csharp_Decimal__Descriptor,
-                new string[] { "I0", "I1", "I2", "I3", });
-        internal__static_csharp_Guid__Descriptor = Descriptor.MessageTypes[3];
-        internal__static_csharp_Guid__FieldAccessorTable = 
-            new pb::FieldAccess.FieldAccessorTable<global::CSharp.Guid, global::CSharp.Guid.Builder>(internal__static_csharp_Guid__Descriptor,
-                new string[] { "Bits", });
-        pb::ExtensionRegistry registry = pb::ExtensionRegistry.CreateInstance();
-        RegisterAllExtensions(registry);
-        global::Google.ProtocolBuffers.DescriptorProtos.CSharpOptions.RegisterAllExtensions(registry);
-        return registry;
-      };
-      pbd::FileDescriptor.InternalBuildGeneratedFileFrom(descriptorData,
-          new pbd::FileDescriptor[] {
-          global::Google.ProtocolBuffers.DescriptorProtos.CSharpOptions.Descriptor, 
-          }, assigner);
+      Descriptor = null;
     }
     #endregion
     
   }
   #region Messages
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class DateTime : pb::GeneratedMessage<DateTime, DateTime.Builder> {
+  public sealed partial class DateTime : pb::GeneratedMessageLite<DateTime, DateTime.Builder> {
     private DateTime() { }
     private static readonly DateTime defaultInstance = new DateTime().MakeReadOnly();
     private static readonly string[] _dateTimeFieldNames = new string[] { "ticks" };
@@ -88,14 +42,6 @@ namespace CSharp {
     
     protected override DateTime ThisMessage {
       get { return this; }
-    }
-    
-    public static pbd::MessageDescriptor Descriptor {
-      get { return global::CSharp.CSharpTypesProto.internal__static_csharp_DateTime__Descriptor; }
-    }
-    
-    protected override pb::FieldAccess.FieldAccessorTable<DateTime, DateTime.Builder> InternalFieldAccessors {
-      get { return global::CSharp.CSharpTypesProto.internal__static_csharp_DateTime__FieldAccessorTable; }
     }
     
     public const int TicksFieldNumber = 1;
@@ -120,7 +66,6 @@ namespace CSharp {
       if (hasTicks) {
         output.WriteSFixed64(1, field_names[0], Ticks);
       }
-      UnknownFields.WriteTo(output);
     }
     
     private int memoizedSerializedSize = -1;
@@ -133,11 +78,29 @@ namespace CSharp {
         if (hasTicks) {
           size += pb::CodedOutputStream.ComputeSFixed64Size(1, Ticks);
         }
-        size += UnknownFields.SerializedSize;
         memoizedSerializedSize = size;
         return size;
       }
     }
+    
+    #region Lite runtime methods
+    public override int GetHashCode() {
+      int hash = GetType().GetHashCode();
+      if (hasTicks) hash ^= ticks_.GetHashCode();
+      return hash;
+    }
+    
+    public override bool Equals(object obj) {
+      DateTime other = obj as DateTime;
+      if (other == null) return false;
+      if (hasTicks != other.hasTicks || (hasTicks && !ticks_.Equals(other.ticks_))) return false;
+      return true;
+    }
+    
+    public override void PrintTo(global::System.IO.TextWriter writer) {
+      PrintField("ticks", hasTicks, ticks_, writer);
+    }
+    #endregion
     
     public static DateTime ParseFrom(pb::ByteString data) {
       return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
@@ -181,7 +144,7 @@ namespace CSharp {
     }
     
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    public sealed partial class Builder : pb::GeneratedBuilder<DateTime, Builder> {
+    public sealed partial class Builder : pb::GeneratedBuilderLite<DateTime, Builder> {
       protected override Builder ThisBuilder {
         get { return this; }
       }
@@ -229,10 +192,6 @@ namespace CSharp {
         }
       }
       
-      public override pbd::MessageDescriptor DescriptorForType {
-        get { return global::CSharp.DateTime.Descriptor; }
-      }
-      
       public override DateTime DefaultInstanceForType {
         get { return global::CSharp.DateTime.DefaultInstance; }
       }
@@ -245,7 +204,7 @@ namespace CSharp {
         return result.MakeReadOnly();
       }
       
-      public override Builder MergeFrom(pb::IMessage other) {
+      public override Builder MergeFrom(pb::IMessageLite other) {
         if (other is DateTime) {
           return MergeFrom((DateTime) other);
         } else {
@@ -260,7 +219,6 @@ namespace CSharp {
         if (other.HasTicks) {
           Ticks = other.Ticks;
         }
-        this.MergeUnknownFields(other.UnknownFields);
         return this;
       }
       
@@ -270,7 +228,6 @@ namespace CSharp {
       
       public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
         PrepareBuilder();
-        pb::UnknownFieldSet.Builder unknownFields = null;
         uint tag;
         string field_name;
         while (input.ReadTag(out tag, out field_name)) {
@@ -279,10 +236,7 @@ namespace CSharp {
             if(field_ordinal >= 0)
               tag = _dateTimeFieldTags[field_ordinal];
             else {
-              if (unknownFields == null) {
-                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
-              }
-              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
               continue;
             }
           }
@@ -292,15 +246,9 @@ namespace CSharp {
             }
             default: {
               if (pb::WireFormat.IsEndGroupTag(tag)) {
-                if (unknownFields != null) {
-                  this.UnknownFields = unknownFields.Build();
-                }
                 return this;
               }
-              if (unknownFields == null) {
-                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
-              }
-              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
               break;
             }
             case 9: {
@@ -310,9 +258,6 @@ namespace CSharp {
           }
         }
         
-        if (unknownFields != null) {
-          this.UnknownFields = unknownFields.Build();
-        }
         return this;
       }
       
@@ -343,7 +288,7 @@ namespace CSharp {
   }
   
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class DateTimeOffset : pb::GeneratedMessage<DateTimeOffset, DateTimeOffset.Builder> {
+  public sealed partial class DateTimeOffset : pb::GeneratedMessageLite<DateTimeOffset, DateTimeOffset.Builder> {
     private DateTimeOffset() { }
     private static readonly DateTimeOffset defaultInstance = new DateTimeOffset().MakeReadOnly();
     private static readonly string[] _dateTimeOffsetFieldNames = new string[] { "offset_ticks", "ticks" };
@@ -358,14 +303,6 @@ namespace CSharp {
     
     protected override DateTimeOffset ThisMessage {
       get { return this; }
-    }
-    
-    public static pbd::MessageDescriptor Descriptor {
-      get { return global::CSharp.CSharpTypesProto.internal__static_csharp_DateTimeOffset__Descriptor; }
-    }
-    
-    protected override pb::FieldAccess.FieldAccessorTable<DateTimeOffset, DateTimeOffset.Builder> InternalFieldAccessors {
-      get { return global::CSharp.CSharpTypesProto.internal__static_csharp_DateTimeOffset__FieldAccessorTable; }
     }
     
     public const int TicksFieldNumber = 1;
@@ -403,7 +340,6 @@ namespace CSharp {
       if (hasOffsetTicks) {
         output.WriteSFixed64(2, field_names[0], OffsetTicks);
       }
-      UnknownFields.WriteTo(output);
     }
     
     private int memoizedSerializedSize = -1;
@@ -419,11 +355,32 @@ namespace CSharp {
         if (hasOffsetTicks) {
           size += pb::CodedOutputStream.ComputeSFixed64Size(2, OffsetTicks);
         }
-        size += UnknownFields.SerializedSize;
         memoizedSerializedSize = size;
         return size;
       }
     }
+    
+    #region Lite runtime methods
+    public override int GetHashCode() {
+      int hash = GetType().GetHashCode();
+      if (hasTicks) hash ^= ticks_.GetHashCode();
+      if (hasOffsetTicks) hash ^= offsetTicks_.GetHashCode();
+      return hash;
+    }
+    
+    public override bool Equals(object obj) {
+      DateTimeOffset other = obj as DateTimeOffset;
+      if (other == null) return false;
+      if (hasTicks != other.hasTicks || (hasTicks && !ticks_.Equals(other.ticks_))) return false;
+      if (hasOffsetTicks != other.hasOffsetTicks || (hasOffsetTicks && !offsetTicks_.Equals(other.offsetTicks_))) return false;
+      return true;
+    }
+    
+    public override void PrintTo(global::System.IO.TextWriter writer) {
+      PrintField("ticks", hasTicks, ticks_, writer);
+      PrintField("offset_ticks", hasOffsetTicks, offsetTicks_, writer);
+    }
+    #endregion
     
     public static DateTimeOffset ParseFrom(pb::ByteString data) {
       return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
@@ -467,7 +424,7 @@ namespace CSharp {
     }
     
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    public sealed partial class Builder : pb::GeneratedBuilder<DateTimeOffset, Builder> {
+    public sealed partial class Builder : pb::GeneratedBuilderLite<DateTimeOffset, Builder> {
       protected override Builder ThisBuilder {
         get { return this; }
       }
@@ -515,10 +472,6 @@ namespace CSharp {
         }
       }
       
-      public override pbd::MessageDescriptor DescriptorForType {
-        get { return global::CSharp.DateTimeOffset.Descriptor; }
-      }
-      
       public override DateTimeOffset DefaultInstanceForType {
         get { return global::CSharp.DateTimeOffset.DefaultInstance; }
       }
@@ -531,7 +484,7 @@ namespace CSharp {
         return result.MakeReadOnly();
       }
       
-      public override Builder MergeFrom(pb::IMessage other) {
+      public override Builder MergeFrom(pb::IMessageLite other) {
         if (other is DateTimeOffset) {
           return MergeFrom((DateTimeOffset) other);
         } else {
@@ -549,7 +502,6 @@ namespace CSharp {
         if (other.HasOffsetTicks) {
           OffsetTicks = other.OffsetTicks;
         }
-        this.MergeUnknownFields(other.UnknownFields);
         return this;
       }
       
@@ -559,7 +511,6 @@ namespace CSharp {
       
       public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
         PrepareBuilder();
-        pb::UnknownFieldSet.Builder unknownFields = null;
         uint tag;
         string field_name;
         while (input.ReadTag(out tag, out field_name)) {
@@ -568,10 +519,7 @@ namespace CSharp {
             if(field_ordinal >= 0)
               tag = _dateTimeOffsetFieldTags[field_ordinal];
             else {
-              if (unknownFields == null) {
-                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
-              }
-              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
               continue;
             }
           }
@@ -581,15 +529,9 @@ namespace CSharp {
             }
             default: {
               if (pb::WireFormat.IsEndGroupTag(tag)) {
-                if (unknownFields != null) {
-                  this.UnknownFields = unknownFields.Build();
-                }
                 return this;
               }
-              if (unknownFields == null) {
-                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
-              }
-              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
               break;
             }
             case 9: {
@@ -603,9 +545,6 @@ namespace CSharp {
           }
         }
         
-        if (unknownFields != null) {
-          this.UnknownFields = unknownFields.Build();
-        }
         return this;
       }
       
@@ -656,7 +595,7 @@ namespace CSharp {
   }
   
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class Decimal : pb::GeneratedMessage<Decimal, Decimal.Builder> {
+  public sealed partial class Decimal : pb::GeneratedMessageLite<Decimal, Decimal.Builder> {
     private Decimal() { }
     private static readonly Decimal defaultInstance = new Decimal().MakeReadOnly();
     private static readonly string[] _decimalFieldNames = new string[] { "i0", "i1", "i2", "i3" };
@@ -671,14 +610,6 @@ namespace CSharp {
     
     protected override Decimal ThisMessage {
       get { return this; }
-    }
-    
-    public static pbd::MessageDescriptor Descriptor {
-      get { return global::CSharp.CSharpTypesProto.internal__static_csharp_Decimal__Descriptor; }
-    }
-    
-    protected override pb::FieldAccess.FieldAccessorTable<Decimal, Decimal.Builder> InternalFieldAccessors {
-      get { return global::CSharp.CSharpTypesProto.internal__static_csharp_Decimal__FieldAccessorTable; }
     }
     
     public const int I0FieldNumber = 1;
@@ -742,7 +673,6 @@ namespace CSharp {
       if (hasI3) {
         output.WriteSFixed32(4, field_names[3], I3);
       }
-      UnknownFields.WriteTo(output);
     }
     
     private int memoizedSerializedSize = -1;
@@ -764,11 +694,38 @@ namespace CSharp {
         if (hasI3) {
           size += pb::CodedOutputStream.ComputeSFixed32Size(4, I3);
         }
-        size += UnknownFields.SerializedSize;
         memoizedSerializedSize = size;
         return size;
       }
     }
+    
+    #region Lite runtime methods
+    public override int GetHashCode() {
+      int hash = GetType().GetHashCode();
+      if (hasI0) hash ^= i0_.GetHashCode();
+      if (hasI1) hash ^= i1_.GetHashCode();
+      if (hasI2) hash ^= i2_.GetHashCode();
+      if (hasI3) hash ^= i3_.GetHashCode();
+      return hash;
+    }
+    
+    public override bool Equals(object obj) {
+      Decimal other = obj as Decimal;
+      if (other == null) return false;
+      if (hasI0 != other.hasI0 || (hasI0 && !i0_.Equals(other.i0_))) return false;
+      if (hasI1 != other.hasI1 || (hasI1 && !i1_.Equals(other.i1_))) return false;
+      if (hasI2 != other.hasI2 || (hasI2 && !i2_.Equals(other.i2_))) return false;
+      if (hasI3 != other.hasI3 || (hasI3 && !i3_.Equals(other.i3_))) return false;
+      return true;
+    }
+    
+    public override void PrintTo(global::System.IO.TextWriter writer) {
+      PrintField("i0", hasI0, i0_, writer);
+      PrintField("i1", hasI1, i1_, writer);
+      PrintField("i2", hasI2, i2_, writer);
+      PrintField("i3", hasI3, i3_, writer);
+    }
+    #endregion
     
     public static Decimal ParseFrom(pb::ByteString data) {
       return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
@@ -812,7 +769,7 @@ namespace CSharp {
     }
     
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    public sealed partial class Builder : pb::GeneratedBuilder<Decimal, Builder> {
+    public sealed partial class Builder : pb::GeneratedBuilderLite<Decimal, Builder> {
       protected override Builder ThisBuilder {
         get { return this; }
       }
@@ -860,10 +817,6 @@ namespace CSharp {
         }
       }
       
-      public override pbd::MessageDescriptor DescriptorForType {
-        get { return global::CSharp.Decimal.Descriptor; }
-      }
-      
       public override Decimal DefaultInstanceForType {
         get { return global::CSharp.Decimal.DefaultInstance; }
       }
@@ -876,7 +829,7 @@ namespace CSharp {
         return result.MakeReadOnly();
       }
       
-      public override Builder MergeFrom(pb::IMessage other) {
+      public override Builder MergeFrom(pb::IMessageLite other) {
         if (other is Decimal) {
           return MergeFrom((Decimal) other);
         } else {
@@ -900,7 +853,6 @@ namespace CSharp {
         if (other.HasI3) {
           I3 = other.I3;
         }
-        this.MergeUnknownFields(other.UnknownFields);
         return this;
       }
       
@@ -910,7 +862,6 @@ namespace CSharp {
       
       public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
         PrepareBuilder();
-        pb::UnknownFieldSet.Builder unknownFields = null;
         uint tag;
         string field_name;
         while (input.ReadTag(out tag, out field_name)) {
@@ -919,10 +870,7 @@ namespace CSharp {
             if(field_ordinal >= 0)
               tag = _decimalFieldTags[field_ordinal];
             else {
-              if (unknownFields == null) {
-                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
-              }
-              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
               continue;
             }
           }
@@ -932,15 +880,9 @@ namespace CSharp {
             }
             default: {
               if (pb::WireFormat.IsEndGroupTag(tag)) {
-                if (unknownFields != null) {
-                  this.UnknownFields = unknownFields.Build();
-                }
                 return this;
               }
-              if (unknownFields == null) {
-                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
-              }
-              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
               break;
             }
             case 13: {
@@ -962,9 +904,6 @@ namespace CSharp {
           }
         }
         
-        if (unknownFields != null) {
-          this.UnknownFields = unknownFields.Build();
-        }
         return this;
       }
       
@@ -1055,7 +994,7 @@ namespace CSharp {
   }
   
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class Guid : pb::GeneratedMessage<Guid, Guid.Builder> {
+  public sealed partial class Guid : pb::GeneratedMessageLite<Guid, Guid.Builder> {
     private Guid() { }
     private static readonly Guid defaultInstance = new Guid().MakeReadOnly();
     private static readonly string[] _guidFieldNames = new string[] { "bits" };
@@ -1070,14 +1009,6 @@ namespace CSharp {
     
     protected override Guid ThisMessage {
       get { return this; }
-    }
-    
-    public static pbd::MessageDescriptor Descriptor {
-      get { return global::CSharp.CSharpTypesProto.internal__static_csharp_Guid__Descriptor; }
-    }
-    
-    protected override pb::FieldAccess.FieldAccessorTable<Guid, Guid.Builder> InternalFieldAccessors {
-      get { return global::CSharp.CSharpTypesProto.internal__static_csharp_Guid__FieldAccessorTable; }
     }
     
     public const int BitsFieldNumber = 1;
@@ -1102,7 +1033,6 @@ namespace CSharp {
       if (hasBits) {
         output.WriteBytes(1, field_names[0], Bits);
       }
-      UnknownFields.WriteTo(output);
     }
     
     private int memoizedSerializedSize = -1;
@@ -1115,11 +1045,29 @@ namespace CSharp {
         if (hasBits) {
           size += pb::CodedOutputStream.ComputeBytesSize(1, Bits);
         }
-        size += UnknownFields.SerializedSize;
         memoizedSerializedSize = size;
         return size;
       }
     }
+    
+    #region Lite runtime methods
+    public override int GetHashCode() {
+      int hash = GetType().GetHashCode();
+      if (hasBits) hash ^= bits_.GetHashCode();
+      return hash;
+    }
+    
+    public override bool Equals(object obj) {
+      Guid other = obj as Guid;
+      if (other == null) return false;
+      if (hasBits != other.hasBits || (hasBits && !bits_.Equals(other.bits_))) return false;
+      return true;
+    }
+    
+    public override void PrintTo(global::System.IO.TextWriter writer) {
+      PrintField("bits", hasBits, bits_, writer);
+    }
+    #endregion
     
     public static Guid ParseFrom(pb::ByteString data) {
       return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
@@ -1163,7 +1111,7 @@ namespace CSharp {
     }
     
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    public sealed partial class Builder : pb::GeneratedBuilder<Guid, Builder> {
+    public sealed partial class Builder : pb::GeneratedBuilderLite<Guid, Builder> {
       protected override Builder ThisBuilder {
         get { return this; }
       }
@@ -1211,10 +1159,6 @@ namespace CSharp {
         }
       }
       
-      public override pbd::MessageDescriptor DescriptorForType {
-        get { return global::CSharp.Guid.Descriptor; }
-      }
-      
       public override Guid DefaultInstanceForType {
         get { return global::CSharp.Guid.DefaultInstance; }
       }
@@ -1227,7 +1171,7 @@ namespace CSharp {
         return result.MakeReadOnly();
       }
       
-      public override Builder MergeFrom(pb::IMessage other) {
+      public override Builder MergeFrom(pb::IMessageLite other) {
         if (other is Guid) {
           return MergeFrom((Guid) other);
         } else {
@@ -1242,7 +1186,6 @@ namespace CSharp {
         if (other.HasBits) {
           Bits = other.Bits;
         }
-        this.MergeUnknownFields(other.UnknownFields);
         return this;
       }
       
@@ -1252,7 +1195,6 @@ namespace CSharp {
       
       public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
         PrepareBuilder();
-        pb::UnknownFieldSet.Builder unknownFields = null;
         uint tag;
         string field_name;
         while (input.ReadTag(out tag, out field_name)) {
@@ -1261,10 +1203,7 @@ namespace CSharp {
             if(field_ordinal >= 0)
               tag = _guidFieldTags[field_ordinal];
             else {
-              if (unknownFields == null) {
-                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
-              }
-              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
               continue;
             }
           }
@@ -1274,15 +1213,9 @@ namespace CSharp {
             }
             default: {
               if (pb::WireFormat.IsEndGroupTag(tag)) {
-                if (unknownFields != null) {
-                  this.UnknownFields = unknownFields.Build();
-                }
                 return this;
               }
-              if (unknownFields == null) {
-                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
-              }
-              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              ParseUnknownField(input, extensionRegistry, tag, field_name);
               break;
             }
             case 10: {
@@ -1292,9 +1225,6 @@ namespace CSharp {
           }
         }
         
-        if (unknownFields != null) {
-          this.UnknownFields = unknownFields.Build();
-        }
         return this;
       }
       

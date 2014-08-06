@@ -41,16 +41,7 @@ using System;
 
 namespace Google.ProtocolBuffers.Plugins
 {
-    public enum CSharpType
-    {
-        NotSupported = 0,
-        DateTime = 1,
-        DateTimeOffset = 2,
-        Decimal = 3,
-        Guid = 4,
-    }
-
-    public class CSharpTypes
+    public static partial class CSharpTypes
     {
         public static CSharpType GetCSharpType(FieldDescriptor field)
         {
@@ -90,27 +81,6 @@ namespace Google.ProtocolBuffers.Plugins
             return null;
         }
 
-        public static bool ToString(CSharpType type, object value, out string text)
-        {
-            switch (type)
-            {
-                case CSharpType.DateTime:
-                    text = ((DateTime)value).ToString("O");
-                    return true;
-                case CSharpType.DateTimeOffset:
-                    text = ((DateTimeOffset)value).ToString("O");
-                    return true;
-                case CSharpType.Decimal:
-                    text = ((Decimal)value).ToString(CultureInfo.InvariantCulture);
-                    return true;
-                case CSharpType.Guid:
-                    text = ((Guid)value).ToString("N");
-                    return true;
-            }
-            text = "";
-            return false;
-        }
-
         public static bool PrintFieldValue(FieldDescriptor field, object value, TextGenerator generator)
         {
             var type = GetCSharpType(field);
@@ -123,77 +93,14 @@ namespace Google.ProtocolBuffers.Plugins
             return false;
         }
 
-        public static bool ToString(object value, out string text)
-        {
-            if (value is DateTime)
-            {
-                return ToString(CSharpType.DateTime, value, out text);
-            }
-            if (value is DateTimeOffset)
-            {
-                return ToString(CSharpType.DateTimeOffset, value, out text);
-            }
-            if (value is decimal)
-            {
-                return ToString(CSharpType.Decimal, value, out text);
-            }
-            if (value is Guid)
-            {
-                return ToString(CSharpType.Guid, value, out text);
-            }
-            text = "";
-            return false;
-        }
-
         internal static bool ParseFieldValue(TextTokenizer tokenizer, FieldDescriptor field, out object value)
         {
-            var culture = CultureInfo.InvariantCulture;
-            string text;
-            switch (GetCSharpType(field))
+            var type = GetCSharpType(field);
+            if (type != CSharpType.NotSupported)
             {
-                case CSharpType.DateTime:
-                    tokenizer.Consume(":");
-                    text = tokenizer.ConsumeString();
-                    var style = DateTimeStyles.AssumeUniversal;
-                    DateTime date;
-                    if (!DateTime.TryParse(text, culture, style, out date))
-                    {
-                        throw tokenizer.CreateFormatExceptionPreviousToken("Invalid DateTime: '" + text + "'.");
-                    }
-                    value = date;
-                    return true;
-                case CSharpType.DateTimeOffset:
-                    tokenizer.Consume(":");
-                    text = tokenizer.ConsumeString();
-                    DateTimeOffset dateTimeOffset;
-                    if (!DateTimeOffset.TryParse(text, culture, DateTimeStyles.AssumeUniversal, out dateTimeOffset))
-                    {
-                        throw tokenizer.CreateFormatExceptionPreviousToken("Invalid DateTimeOffset: '" + text + "'.");
-                    }
-                    value = dateTimeOffset;
-                    return true;
-                case CSharpType.Decimal:
-                    tokenizer.Consume(":");
-                    text = tokenizer.ConsumeString();
-                    decimal dec;
-                    if (!Decimal.TryParse(text, NumberStyles.Any, culture, out dec))
-                    {
-                        throw tokenizer.CreateFormatExceptionPreviousToken("Invalid Decimal: '" + text + "'.");
-                    }
-                    value = dec;
-                    return true;
-                case CSharpType.Guid:
-                    tokenizer.Consume(":");
-                    text = tokenizer.ConsumeString();
-                    try
-                    {
-                        value = new Guid(text);
-                    }
-                    catch (Exception)
-                    {
-                        throw tokenizer.CreateFormatExceptionPreviousToken("Invalid Guid: '" + text + "'.");
-                    }
-                    return true;
+                tokenizer.Consume(":");
+                string text = tokenizer.ConsumeString();
+                return TryParse(type, text, out value);
             }
             value = null;
             return false;

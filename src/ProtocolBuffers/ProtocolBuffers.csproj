@@ -63,6 +63,7 @@
     <Compile Include="CodedOutputStream.ComputeSize.cs" />
     <Compile Include="DescriptorProtos\CSharpTypesProto.cs" />
     <Compile Include="Plugins\CSharpTypes.cs" />
+    <Compile Include="Plugins\CSharpTypesLite.cs" />
     <Compile Include="CustomSerialization.cs" />
     <Compile Include="Delegates.cs" />
     <Compile Include="CodedInputStream.cs" />

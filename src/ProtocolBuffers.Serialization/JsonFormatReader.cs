@@ -255,6 +255,18 @@ namespace Google.ProtocolBuffers.Serialization
         /// </summary>
         protected override bool ReadMessage(IBuilderLite builder, ExtensionRegistry registry)
         {
+            string typeName = builder.WeakDefaultInstanceForType.GetType().FullName;
+            var type = Plugins.CSharpTypes.GetCSharpType(typeName);
+            if (type != Plugins.CSharpType.NotSupported)
+            {
+                string text = "";
+                object value = null;
+                if (Read(ref text) && Plugins.CSharpTypes.TryParse(type, text, out value))
+                {
+
+                }
+                return false;
+            }
             Merge(builder, registry);
             return true;
         }

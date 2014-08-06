@@ -1,3 +1,5 @@
+using Google.ProtocolBuffers;
+using Google.ProtocolBuffers.Descriptors;
 using System;
 using System.Xml;
 
@@ -101,6 +103,17 @@ namespace Google.ProtocolBuffers.Serialization
         protected override void WriteEnum(string field, int number, string name)
         {
             WriteAsText(field, name, number);
+        }
+
+        protected override void WriteField(FieldType fieldType, string field, object value)
+        {
+            string text;
+            if (fieldType == FieldType.Message && Plugins.CSharpTypes.ToString(value, out text))
+            {
+                base.WriteField(FieldType.String, field, text);
+                return;
+            }
+            base.WriteField(fieldType, field, value);
         }
     }
 }

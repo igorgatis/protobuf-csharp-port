@@ -5,6 +5,8 @@ import "google/protobuf/csharp_options.proto";
 option (google.protobuf.csharp_file_options).namespace = "CSharp";
 option (google.protobuf.csharp_file_options).umbrella_classname = "CSharpTypesProto";
 
+option optimize_for = LITE_RUNTIME;
+
 package csharp;
 
 // DateTime stored as Ticks.
