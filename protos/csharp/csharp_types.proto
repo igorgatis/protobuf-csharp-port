@@ -1,11 +1,9 @@
 // C# types.
-
+import "google/protobuf/descriptor.proto";
 import "google/protobuf/csharp_options.proto";
 
 option (google.protobuf.csharp_file_options).namespace = "CSharp";
 option (google.protobuf.csharp_file_options).umbrella_classname = "CSharpTypesProto";
-
-option optimize_for = LITE_RUNTIME;
 
 package csharp;
 
@@ -36,4 +34,16 @@ message Decimal {
 // http://msdn.microsoft.com/en-us/library/90ck37x3(v=vs.110).aspx
 message Guid {
   optional bytes bits = 1;
+}
+
+enum CSharpType {
+  NONE = 0;
+  DATETIME= 1;
+  DATETIMEOFFSET = 2;
+  DECIMAL = 3;
+  GUID = 4;
+}
+
+extend google.protobuf.FieldOptions {
+  optional CSharpType type = 20140806 [default=NONE];
 }

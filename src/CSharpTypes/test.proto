@@ -1,0 +1,31 @@
+package tutorial;
+ 
+import "csharp/csharp_types.proto";
+
+/*
+message Msg1 {
+  optional csharp.DateTime opt_date_time = 1;
+  optional csharp.DateTimeOffset opt_date_time_offset = 2;
+  optional csharp.Decimal opt_decimal = 3;
+  optional csharp.Guid opt_guid = 4;
+
+  repeated csharp.DateTime rep_date_time = 5;
+  repeated csharp.DateTimeOffset rep_date_time_offset = 6;
+  repeated csharp.Decimal rep_decimal = 7;
+  repeated csharp.Guid rep_guid = 8;
+}
+*/
+
+message Msg2 {
+  optional string opt_date_time = 1 [(csharp.type)=DATETIME];
+  optional string opt_date_time_offset = 2 [(csharp.type)=DATETIMEOFFSET];
+  optional string opt_decimal = 3 [(csharp.type)=DECIMAL];
+  optional string opt_guid = 4 [(csharp.type)=GUID];
+
+  repeated string rep_date_time = 5 [(csharp.type)=DATETIME];
+  repeated string rep_date_time_offset = 6 [(csharp.type)=DATETIMEOFFSET];
+  repeated string rep_decimal = 7 [(csharp.type)=DECIMAL];
+  repeated string rep_guid = 8 [(csharp.type)=GUID];
+
+  repeated string rep_str = 10;
+}

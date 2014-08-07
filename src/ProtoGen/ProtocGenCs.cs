@@ -49,6 +49,7 @@ namespace Google.ProtocolBuffers.ProtoGen
             DescriptorProtoFile.Descriptor.ToString();
             ExtensionRegistry extensionRegistry = ExtensionRegistry.CreateInstance();
             CSharpOptions.RegisterAllExtensions(extensionRegistry);
+            CSharp.CSharpTypesProto.RegisterAllExtensions(extensionRegistry);
 
             CodeGeneratorRequest request;
             var response = new CodeGeneratorResponse.Builder();

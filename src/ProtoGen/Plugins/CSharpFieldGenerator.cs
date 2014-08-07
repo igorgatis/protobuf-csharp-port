@@ -42,9 +42,14 @@ namespace Google.ProtocolBuffers.ProtoGen.Plugins
 {
     internal class CSharpFieldGenerator : FieldGeneratorBase, IFieldSourceGenerator
     {
+        protected const string kInvariantCulture = "System.Globalization.CultureInfo.InvariantCulture";
+        protected const string kAssumeUniversal = "System.Globalization.DateTimeStyles.AssumeUniversal";
+        protected const string kNumberStylesAny = "System.Globalization.NumberStyles.Any";
+
         public static IFieldSourceGenerator CreateFieldGenerator(FieldDescriptor field, int fieldOrdinal)
         {
-            if (CSharpTypes.GetCSharpType(field) != CSharpType.NotSupported)
+            if (CSharpTypes.GetCSharpType(field) != CSharpType.NotSupported ||
+                field.Options.GetExtension(CSharp.CSharpTypesProto.Type) != CSharp.CSharpType.NONE)
             {
                 if (field.IsRepeated)
                 {
@@ -76,7 +81,38 @@ namespace Google.ProtocolBuffers.ProtoGen.Plugins
                     case CSharpType.Guid:
                         return typeof(Guid).FullName;
                 }
+                switch (Descriptor.Options.GetExtension(CSharp.CSharpTypesProto.Type))
+                {
+                    case CSharp.CSharpType.DATETIME:
+                        return typeof(DateTime).FullName;
+                    case CSharp.CSharpType.DATETIMEOFFSET:
+                        return typeof(DateTimeOffset).FullName;
+                    case CSharp.CSharpType.DECIMAL:
+                        return "decimal";
+                    case CSharp.CSharpType.GUID:
+                        return typeof(Guid).FullName;
+                }
                 return "NULL";  // Should never happen.
+            }
+        }
+
+        protected string ToStringCall
+        {
+            get
+            {
+                var type = Descriptor.Options.GetExtension(CSharp.CSharpTypesProto.Type);
+                switch (type)
+                {
+                    case CSharp.CSharpType.DATETIME:
+                        return "ToString(\"O\")";
+                    case CSharp.CSharpType.DATETIMEOFFSET:
+                        return "ToString(\"O\")";
+                    case CSharp.CSharpType.DECIMAL:
+                        return string.Format("ToString({0})", kInvariantCulture);
+                    case CSharp.CSharpType.GUID:
+                        return "ToString(\"N\")";
+                }
+                return "ToString();";
             }
         }
 
@@ -92,28 +128,31 @@ namespace Google.ProtocolBuffers.ProtoGen.Plugins
             writer.WriteLine("public {0} {1} {{", ExposedTypeName, PropertyName);
             writer.WriteLine("  get {{ return {0}_; }}", Name);
             writer.WriteLine("}");
-            writer.WriteLine("public {0} Get{1}Proto() {{", TypeName, PropertyName);
-            writer.WriteLine("  {0}.Builder proto = {0}.CreateBuilder();", TypeName);
-            switch (CSharpTypes.GetCSharpType(Descriptor))
+            if (Descriptor.FieldType == FieldType.Message)
             {
-                case CSharpType.DateTime:
-                    writer.WriteLine("  proto.SetTicks({0}_.Ticks);", Name);
-                    break;
-                case CSharpType.DateTimeOffset:
-                    writer.WriteLine("  proto.SetTicks({0}_.Ticks);", Name);
-                    writer.WriteLine("  proto.SetOffsetTicks({0}_.Offset.Ticks);", Name);
-                    break;
-                case CSharpType.Decimal:
-                    writer.WriteLine("  var bits = {0}.GetBits({1}_);", ExposedTypeName, Name);
-                    writer.WriteLine("  proto.SetI0(bits[0]).SetI1(bits[1]).SetI2(bits[2]).SetI3(bits[3]);");
-                    break;
-                case CSharpType.Guid:
-                    writer.WriteLine("  var bytes = {0}_.ToByteArray();", Name);
-                    writer.WriteLine("  proto.SetBits(pb::ByteString.Unsafe.FromBytes(bytes));");
-                    break;
+                writer.WriteLine("public {0} Get{1}Proto() {{", TypeName, PropertyName);
+                writer.WriteLine("  {0}.Builder proto = {0}.CreateBuilder();", TypeName);
+                switch (CSharpTypes.GetCSharpType(Descriptor))
+                {
+                    case CSharpType.DateTime:
+                        writer.WriteLine("  proto.SetTicks({0}_.Ticks);", Name);
+                        break;
+                    case CSharpType.DateTimeOffset:
+                        writer.WriteLine("  proto.SetTicks({0}_.Ticks);", Name);
+                        writer.WriteLine("  proto.SetOffsetTicks({0}_.Offset.Ticks);", Name);
+                        break;
+                    case CSharpType.Decimal:
+                        writer.WriteLine("  var bits = {0}.GetBits({1}_);", ExposedTypeName, Name);
+                        writer.WriteLine("  proto.SetI0(bits[0]).SetI1(bits[1]).SetI2(bits[2]).SetI3(bits[3]);");
+                        break;
+                    case CSharpType.Guid:
+                        writer.WriteLine("  var bytes = {0}_.ToByteArray();", Name);
+                        writer.WriteLine("  proto.SetBits(pb::ByteString.Unsafe.FromBytes(bytes));");
+                        break;
+                }
+                writer.WriteLine("  return proto.BuildPartial();");
+                writer.WriteLine("}");
             }
-            writer.WriteLine("  return proto.BuildPartial();");
-            writer.WriteLine("}");
         }
 
         public virtual void GenerateBuilderMembers(TextGenerator writer)
@@ -123,12 +162,12 @@ namespace Google.ProtocolBuffers.ProtoGen.Plugins
             writer.WriteLine("public bool Has{0} {{", PropertyName);
             writer.WriteLine(" get {{ return result.has{0}; }}", PropertyName);
             writer.WriteLine("}");
-            AddDeprecatedFlag(writer);
+            AddPublicMemberAttributes(writer);
             writer.WriteLine("public {0} {1} {{", ExposedTypeName, PropertyName);
             writer.WriteLine("  get {{ return result.{0}; }}", PropertyName);
             writer.WriteLine("  set {{ Set{0}(value); }}", PropertyName);
             writer.WriteLine("}");
-            AddDeprecatedFlag(writer);
+            AddPublicMemberAttributes(writer);
             writer.WriteLine("public Builder Set{0}({1} value) {{", PropertyName, ExposedTypeName);
             writer.WriteLine("  PrepareBuilder();");
             writer.WriteLine("  result.has{0} = true;", PropertyName);
@@ -143,28 +182,31 @@ namespace Google.ProtocolBuffers.ProtoGen.Plugins
             writer.WriteLine("  return this;");
             writer.WriteLine("}");
 
-            AddDeprecatedFlag(writer);
-            writer.WriteLine("public Builder Set{0}Proto({1} proto) {{", PropertyName, TypeName);
-            switch (type)
+            if (Descriptor.FieldType == FieldType.Message)
             {
-                case CSharpType.DateTime:
-                    writer.WriteLine("  Set{0}(new {1}(proto.Ticks));", PropertyName, ExposedTypeName);
-                    break;
-                case CSharpType.DateTimeOffset:
-                    writer.WriteLine("  Set{0}(new {1}(proto.Ticks, {2}));", PropertyName, ExposedTypeName,
-                        "new System.TimeSpan(proto.OffsetTicks)");
-                    break;
-                case CSharpType.Decimal:
-                    writer.WriteLine("  Set{0}(new {1}({2}));", PropertyName, ExposedTypeName,
-                        "new int[] {proto.I0, proto.I1, proto.I2, proto.I3}");
-                    break;
-                case CSharpType.Guid:
-                    writer.WriteLine("  Set{0}(new {1}({2}));", PropertyName, ExposedTypeName,
-                        "pb::ByteString.Unsafe.GetBuffer(proto.Bits)");
-                    break;
+                AddPublicMemberAttributes(writer);
+                writer.WriteLine("public Builder Set{0}Proto({1} proto) {{", PropertyName, TypeName);
+                switch (type)
+                {
+                    case CSharpType.DateTime:
+                        writer.WriteLine("  Set{0}(new {1}(proto.Ticks));", PropertyName, ExposedTypeName);
+                        break;
+                    case CSharpType.DateTimeOffset:
+                        writer.WriteLine("  Set{0}(new {1}(proto.Ticks, {2}));", PropertyName, ExposedTypeName,
+                            "new System.TimeSpan(proto.OffsetTicks)");
+                        break;
+                    case CSharpType.Decimal:
+                        writer.WriteLine("  Set{0}(new {1}({2}));", PropertyName, ExposedTypeName,
+                            "new int[] {proto.I0, proto.I1, proto.I2, proto.I3}");
+                        break;
+                    case CSharpType.Guid:
+                        writer.WriteLine("  Set{0}(new {1}({2}));", PropertyName, ExposedTypeName,
+                            "pb::ByteString.Unsafe.GetBuffer(proto.Bits)");
+                        break;
+                }
+                writer.WriteLine("  return this;");
+                writer.WriteLine("}");
             }
-            writer.WriteLine("  return this;");
-            writer.WriteLine("}");
 
             AddDeprecatedFlag(writer);
             writer.WriteLine("public Builder Clear{0}() {{", PropertyName);
@@ -189,24 +231,77 @@ namespace Google.ProtocolBuffers.ProtoGen.Plugins
 
         public virtual void GenerateParsingCode(TextGenerator writer)
         {
-            writer.WriteLine("{0}.Builder subBuilder = {0}.CreateBuilder();", TypeName);
-            writer.WriteLine("input.ReadMessage(subBuilder, extensionRegistry);");
-            writer.WriteLine("Set{0}Proto(subBuilder.BuildPartial());", PropertyName);
+            if (Descriptor.FieldType == FieldType.Message)
+            {
+                writer.WriteLine("{0}.Builder subBuilder = {0}.CreateBuilder();", TypeName);
+                writer.WriteLine("input.ReadMessage(subBuilder, extensionRegistry);");
+                writer.WriteLine("Set{0}Proto(subBuilder.BuildPartial());", PropertyName);
+            }
+            else
+            {
+                writer.WriteLine("string text = null;");
+                writer.WriteLine("if (input.ReadString(ref text)) {");
+                writer.WriteLine("  {0} value;", ExposedTypeName);
+                var type = Descriptor.Options.GetExtension(CSharp.CSharpTypesProto.Type);
+                switch (type)
+                {
+                    case CSharp.CSharpType.DATETIME:
+                        writer.WriteLine("  if (System.DateTime.TryParse(text, {0}, {1}, out value)) {{",
+                            kInvariantCulture, kAssumeUniversal);
+                        break;
+                    case CSharp.CSharpType.DATETIMEOFFSET:
+                        writer.WriteLine("  if (System.DateTimeOffset.TryParse(text, {0}, {1}, out value)) {{",
+                            kInvariantCulture, kAssumeUniversal);
+                        break;
+                    case CSharp.CSharpType.DECIMAL:
+                        writer.WriteLine("  if (System.Decimal.TryParse(text, {0}, {1}, out value)) {{",
+                            kNumberStylesAny, kInvariantCulture);
+                        break;
+                    case CSharp.CSharpType.GUID:
+                        writer.WriteLine("  try {");
+                        writer.WriteLine("    value = new System.Guid(text); ");
+                        break;
+                }
+                writer.WriteLine("    result.has{0} = true;", PropertyName);
+                writer.WriteLine("    result.{0}_ = value;", Name);
+                writer.WriteLine("  }");
+                if (type == CSharp.CSharpType.GUID)
+                {
+                    writer.WriteLine("  catch {}");
+                }
+                writer.WriteLine("}");
+            }
         }
 
         public virtual void GenerateSerializationCode(TextGenerator writer)
         {
             writer.WriteLine("if (has{0}) {{", PropertyName);
-            writer.WriteLine("  output.WriteMessage({0}, field_names[{2}], Get{1}Proto());", Number, PropertyName,
-                             FieldOrdinal);
+            if (Descriptor.FieldType == FieldType.Message)
+            {
+                writer.WriteLine("  output.WriteMessage({0}, field_names[{1}], Get{2}Proto());",
+                    Number, FieldOrdinal, PropertyName);
+            }
+            else
+            {
+                writer.WriteLine("  output.WriteString({0}, field_names[{1}], {2}.{3});",
+                    Number, FieldOrdinal, PropertyName, ToStringCall);
+            }
             writer.WriteLine("}");
         }
 
         public virtual void GenerateSerializedSizeCode(TextGenerator writer)
         {
             writer.WriteLine("if (has{0}) {{", PropertyName);
-            writer.WriteLine("  size += pb::CodedOutputStream.ComputeMessageSize({0}, Get{1}Proto());",
-                             Number, PropertyName);
+            if (Descriptor.FieldType == FieldType.Message)
+            {
+                writer.WriteLine("  size += pb::CodedOutputStream.ComputeMessageSize({0}, Get{1}Proto());",
+                                 Number, PropertyName);
+            }
+            else
+            {
+                writer.WriteLine("  size += pb::CodedOutputStream.ComputeStringSize({0}, {1}.{2});",
+                                 Number, PropertyName, ToStringCall);
+            }
             writer.WriteLine("}");
         }
 
@@ -223,7 +318,15 @@ namespace Google.ProtocolBuffers.ProtoGen.Plugins
 
         public override void WriteToString(TextGenerator writer)
         {
-            writer.WriteLine("PrintField(\"{0}\", has{1}, {2}_, writer);", Descriptor.Name, PropertyName, Name);
+            if (Descriptor.FieldType == FieldType.Message)
+            {
+                writer.WriteLine("PrintField(\"{0}\", has{1}, {2}_, writer);", Descriptor.Name, PropertyName, Name);
+            }
+            else
+            {
+                writer.WriteLine("PrintField(\"{0}\", has{1}, {1}.{2}, writer);",
+                    Descriptor.Name, PropertyName, ToStringCall);
+            }
         }
     }
 }

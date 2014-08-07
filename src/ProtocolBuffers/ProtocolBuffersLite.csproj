@@ -55,7 +55,6 @@
     <Compile Include="AbstractMessageLite.cs" />
     <Compile Include="ByteArray.cs" />
     <Compile Include="CodedOutputStream.ComputeSize.cs" />
-    <Compile Include="DescriptorProtos\CSharpTypesProto.cs" />
     <Compile Include="Plugins\CSharpTypesLite.cs" />
     <Compile Include="Collections\Dictionaries.cs" />
     <Compile Include="Collections\Enumerables.cs" />

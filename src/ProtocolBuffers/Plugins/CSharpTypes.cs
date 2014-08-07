@@ -43,6 +43,11 @@ namespace Google.ProtocolBuffers.Plugins
 {
     public static partial class CSharpTypes
     {
+        public static CSharp.CSharpType GetType(FieldDescriptor field)
+        {
+            return field.Options.GetExtension(CSharp.CSharpTypesProto.Type);
+        }
+
         public static CSharpType GetCSharpType(FieldDescriptor field)
         {
             if (field.MappedType == MappedType.Message)
@@ -103,6 +108,40 @@ namespace Google.ProtocolBuffers.Plugins
                 return TryParse(type, text, out value);
             }
             value = null;
+            return false;
+        }
+
+        public static bool TryParse(CSharpType type, string text, IBuilderLite builder)
+        {
+            object value;
+            if (!TryParse(type, text, out value))
+            {
+                return false;
+            }
+            switch (type)
+            {
+                case CSharpType.DateTime:
+                    ((CSharp.DateTime.Builder)builder).SetTicks(((DateTime)value).Ticks);
+                    return true;
+                case CSharpType.DateTimeOffset:
+                    var dtoValue = (DateTimeOffset)value;
+                    var dtoBuilder = (CSharp.DateTimeOffset.Builder)builder;
+                    dtoBuilder.SetTicks(dtoValue.Ticks);
+                    dtoBuilder.SetOffsetTicks(dtoValue.Offset.Ticks);
+                    return true;
+                case CSharpType.Decimal:
+                    int[] bits = Decimal.GetBits((decimal)value);
+                    var decimalBuilder = (CSharp.Decimal.Builder)builder;
+                    decimalBuilder.SetI0(bits[0]);
+                    decimalBuilder.SetI1(bits[1]);
+                    decimalBuilder.SetI2(bits[2]);
+                    decimalBuilder.SetI3(bits[3]);
+                    return true;
+                case CSharpType.Guid:
+                    var bytes = ByteString.Unsafe.FromBytes(((Guid)value).ToByteArray());
+                    ((CSharp.Guid.Builder)builder).SetBits(bytes);
+                    return true;
+            }
             return false;
         }
     }
