@@ -34,8 +34,8 @@
 
 #endregion
 
+using Google.ProtocolBuffers.CSharp;
 using Google.ProtocolBuffers.Descriptors;
-using Google.ProtocolBuffers.Plugins;
 
 namespace Google.ProtocolBuffers.ProtoGen.Plugins
 {
@@ -68,21 +68,21 @@ namespace Google.ProtocolBuffers.ProtoGen.Plugins
                 AddPublicMemberAttributes(writer);
                 writer.WriteLine("public {0} Get{1}Proto(int index) {{", TypeName, PropertyName);
                 writer.WriteLine("  {0}.Builder proto = {0}.CreateBuilder();", TypeName);
-                switch (CSharpTypes.GetCSharpType(Descriptor))
+                switch (Descriptor.GetCsType())
                 {
-                    case CSharpType.DateTime:
+                    case CSharpType.kDateTime:
                         writer.WriteLine("  proto.SetTicks({0}_[index].Ticks);", Name);
                         break;
-                    case CSharpType.DateTimeOffset:
+                    case CSharpType.kDateTimeOffset:
                         writer.WriteLine("  var item = {0}_[index];", Name);
                         writer.WriteLine("  proto.SetTicks(item.Ticks);", Name);
                         writer.WriteLine("  proto.SetOffsetTicks(item.Offset.Ticks);", Name);
                         break;
-                    case CSharpType.Decimal:
+                    case CSharpType.kDecimal:
                         writer.WriteLine("  var bits = {0}.GetBits({1}_[index]);", ExposedTypeName, Name);
                         writer.WriteLine("  proto.SetI0(bits[0]).SetI1(bits[1]).SetI2(bits[2]).SetI3(bits[3]);");
                         break;
-                    case CSharpType.Guid:
+                    case CSharpType.kGuid:
                         writer.WriteLine("  var bytes = {0}_[index].ToByteArray();", Name);
                         writer.WriteLine("  proto.SetBits(pb::ByteString.Unsafe.FromBytes(bytes));");
                         break;
@@ -127,20 +127,20 @@ namespace Google.ProtocolBuffers.ProtoGen.Plugins
                 AddPublicMemberAttributes(writer);
                 writer.WriteLine("public Builder Add{0}Proto({1} value) {{", PropertyName, TypeName);
                 AddNullCheck(writer);
-                switch (CSharpTypes.GetCSharpType(Descriptor))
+                switch (Descriptor.GetCsType())
                 {
-                    case CSharpType.DateTime:
+                    case CSharpType.kDateTime:
                         writer.WriteLine("  Add{0}(new {1}(value.Ticks));", PropertyName, ExposedTypeName);
                         break;
-                    case CSharpType.DateTimeOffset:
+                    case CSharpType.kDateTimeOffset:
                         writer.WriteLine("  Add{0}(new {1}(value.Ticks, {2}));", PropertyName, ExposedTypeName,
                             "new System.TimeSpan(value.OffsetTicks)");
                         break;
-                    case CSharpType.Decimal:
+                    case CSharpType.kDecimal:
                         writer.WriteLine("  Add{0}(new {1}({2}));", PropertyName, ExposedTypeName,
                             "new int[] {value.I0, value.I1, value.I2, value.I3}");
                         break;
-                    case CSharpType.Guid:
+                    case CSharpType.kGuid:
                         writer.WriteLine("  Add{0}(new {1}({2}));", PropertyName, ExposedTypeName,
                             "pb::ByteString.Unsafe.GetBuffer(value.Bits)");
                         break;
@@ -189,33 +189,10 @@ namespace Google.ProtocolBuffers.ProtoGen.Plugins
             {
                 writer.WriteLine("input.ReadStringArray(tag, field_name, list);");
                 writer.WriteLine("foreach (var text in list) {");
-                writer.WriteLine("  {0} value;", ExposedTypeName);
-                var type = Descriptor.Options.GetExtension(CSharp.CSharpTypesProto.Type);
-                switch (type)
-                {
-                    case CSharp.CSharpType.DATETIME:
-                        writer.WriteLine("  if (System.DateTime.TryParse(text, {0}, {1}, out value)) {{",
-                            kInvariantCulture, kAssumeUniversal);
-                        break;
-                    case CSharp.CSharpType.DATETIMEOFFSET:
-                        writer.WriteLine("  if (System.DateTimeOffset.TryParse(text, {0}, {1}, out value)) {{",
-                            kInvariantCulture, kAssumeUniversal);
-                        break;
-                    case CSharp.CSharpType.DECIMAL:
-                        writer.WriteLine("  if (System.Decimal.TryParse(text, {0}, {1}, out value)) {{",
-                            kNumberStylesAny, kInvariantCulture);
-                        break;
-                    case CSharp.CSharpType.GUID:
-                        writer.WriteLine("  try {");
-                        writer.WriteLine("    value = new System.Guid(text); ");
-                        break;
-                }
+                writer.WriteLine("  var value = default({0});", ExposedTypeName);
+                writer.WriteLine("  if (cs.CSharpTypes.TryParse(text, ref value)) {");
                 writer.WriteLine("    Add{0}(value);", PropertyName);
                 writer.WriteLine("  }");
-                if (type == CSharp.CSharpType.GUID)
-                {
-                    writer.WriteLine("  catch {}");
-                }
                 writer.WriteLine("}");
             }
         }
@@ -232,8 +209,8 @@ namespace Google.ProtocolBuffers.ProtoGen.Plugins
             }
             else
             {
-                writer.WriteLine("  output.WriteString({0}, field_names[{1}], Get{2}(i).{3});",
-                    Number, FieldOrdinal, PropertyName, ToStringCall);
+                writer.WriteLine("  string text = cs.CSharpTypes.ToString(this.{0}_[i]);", Name);
+                writer.WriteLine("  output.WriteString({0}, field_names[{1}], text);", Number, FieldOrdinal);
             }
             writer.WriteLine("}");
             writer.Outdent();
@@ -253,8 +230,8 @@ namespace Google.ProtocolBuffers.ProtoGen.Plugins
             }
             else
             {
-                writer.WriteLine("  dataSize += pb::CodedOutputStream.ComputeStringSize({0}, Get{1}(i).{2});",
-                    Number, PropertyName, ToStringCall);
+                writer.WriteLine("  string text = cs.CSharpTypes.ToString(this.{0}_[i]);", Name);
+                writer.WriteLine("  dataSize += pb::CodedOutputStream.ComputeStringSize({0}, text);", Number);
             }
             writer.WriteLine("}");
             writer.WriteLine("size += dataSize;");
@@ -285,7 +262,8 @@ namespace Google.ProtocolBuffers.ProtoGen.Plugins
             }
             else
             {
-                writer.WriteLine("PrintField(\"{0}\", {1}, writer);", Descriptor.Name, ToStringCall);
+                writer.WriteLine("  string text = cs.CSharpTypes.ToString(this.{0}_[i]);", Name);
+                writer.WriteLine("PrintField(\"{0}\", text, writer);", Descriptor.Name);
             }
         }
     }

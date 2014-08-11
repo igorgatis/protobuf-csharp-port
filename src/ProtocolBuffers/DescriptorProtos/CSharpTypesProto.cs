@@ -4,32 +4,33 @@
 
 using pb = global::Google.ProtocolBuffers;
 using pbc = global::Google.ProtocolBuffers.Collections;
+using cs = global::Google.ProtocolBuffers.CSharp;
 using pbd = global::Google.ProtocolBuffers.Descriptors;
 using scg = global::System.Collections.Generic;
-namespace CSharp {
+namespace Google.ProtocolBuffers.CSharp {
   
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public static partial class CSharpTypesProto {
   
     #region Extension registration
     public static void RegisterAllExtensions(pb::ExtensionRegistry registry) {
-      registry.Add(global::CSharp.CSharpTypesProto.Type);
+      registry.Add(global::Google.ProtocolBuffers.CSharp.CSharpTypesProto.Type);
     }
     #endregion
     #region Extensions
     public const int TypeFieldNumber = 20140806;
-    public static pb::GeneratedExtensionBase<global::CSharp.CSharpType> Type;
+    public static pb::GeneratedExtensionBase<global::Google.ProtocolBuffers.CSharp.CSharpType> Type;
     #endregion
     
     #region Static variables
-    internal static pbd::MessageDescriptor internal__static_csharp_DateTime__Descriptor;
-    internal static pb::FieldAccess.FieldAccessorTable<global::CSharp.DateTime, global::CSharp.DateTime.Builder> internal__static_csharp_DateTime__FieldAccessorTable;
-    internal static pbd::MessageDescriptor internal__static_csharp_DateTimeOffset__Descriptor;
-    internal static pb::FieldAccess.FieldAccessorTable<global::CSharp.DateTimeOffset, global::CSharp.DateTimeOffset.Builder> internal__static_csharp_DateTimeOffset__FieldAccessorTable;
-    internal static pbd::MessageDescriptor internal__static_csharp_Decimal__Descriptor;
-    internal static pb::FieldAccess.FieldAccessorTable<global::CSharp.Decimal, global::CSharp.Decimal.Builder> internal__static_csharp_Decimal__FieldAccessorTable;
-    internal static pbd::MessageDescriptor internal__static_csharp_Guid__Descriptor;
-    internal static pb::FieldAccess.FieldAccessorTable<global::CSharp.Guid, global::CSharp.Guid.Builder> internal__static_csharp_Guid__FieldAccessorTable;
+    internal static pbd::MessageDescriptor internal__static_cs_DateTime__Descriptor;
+    internal static pb::FieldAccess.FieldAccessorTable<global::Google.ProtocolBuffers.CSharp.DateTime, global::Google.ProtocolBuffers.CSharp.DateTime.Builder> internal__static_cs_DateTime__FieldAccessorTable;
+    internal static pbd::MessageDescriptor internal__static_cs_DateTimeOffset__Descriptor;
+    internal static pb::FieldAccess.FieldAccessorTable<global::Google.ProtocolBuffers.CSharp.DateTimeOffset, global::Google.ProtocolBuffers.CSharp.DateTimeOffset.Builder> internal__static_cs_DateTimeOffset__FieldAccessorTable;
+    internal static pbd::MessageDescriptor internal__static_cs_Decimal__Descriptor;
+    internal static pb::FieldAccess.FieldAccessorTable<global::Google.ProtocolBuffers.CSharp.Decimal, global::Google.ProtocolBuffers.CSharp.Decimal.Builder> internal__static_cs_Decimal__FieldAccessorTable;
+    internal static pbd::MessageDescriptor internal__static_cs_Guid__Descriptor;
+    internal static pb::FieldAccess.FieldAccessorTable<global::Google.ProtocolBuffers.CSharp.Guid, global::Google.ProtocolBuffers.CSharp.Guid.Builder> internal__static_cs_Guid__FieldAccessorTable;
     #endregion
     #region Descriptor
     public static pbd::FileDescriptor Descriptor {
@@ -40,36 +41,36 @@ namespace CSharp {
     static CSharpTypesProto() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Chljc2hhcnAvY3NoYXJwX3R5cGVzLnByb3RvEgZjc2hhcnAaIGdvb2dsZS9w", 
-            "cm90b2J1Zi9kZXNjcmlwdG9yLnByb3RvGiRnb29nbGUvcHJvdG9idWYvY3No", 
-            "YXJwX29wdGlvbnMucHJvdG8iGQoIRGF0ZVRpbWUSDQoFdGlja3MYASABKBAi", 
-            "NQoORGF0ZVRpbWVPZmZzZXQSDQoFdGlja3MYASABKBASFAoMb2Zmc2V0X3Rp", 
-            "Y2tzGAIgASgQIjkKB0RlY2ltYWwSCgoCaTAYASABKA8SCgoCaTEYAiABKA8S", 
-            "CgoCaTIYAyABKA8SCgoCaTMYBCABKA8iFAoER3VpZBIMCgRiaXRzGAEgASgM", 
-            "Kk8KCkNTaGFycFR5cGUSCAoETk9ORRAAEgwKCERBVEVUSU1FEAESEgoOREFU", 
-            "RVRJTUVPRkZTRVQQAhILCgdERUNJTUFMEAMSCAoER1VJRBAEOkgKBHR5cGUS", 
-            "HS5nb29nbGUucHJvdG9idWYuRmllbGRPcHRpb25zGIamzQkgASgOMhIuY3No", 
-            "YXJwLkNTaGFycFR5cGU6BE5PTkVCHcI+GgoGQ1NoYXJwEhBDU2hhcnBUeXBl", 
-          "c1Byb3Rv"));
+            "Chljc2hhcnAvY3NoYXJwX3R5cGVzLnByb3RvEgJjcxogZ29vZ2xlL3Byb3Rv", 
+            "YnVmL2Rlc2NyaXB0b3IucHJvdG8aJGdvb2dsZS9wcm90b2J1Zi9jc2hhcnBf", 
+            "b3B0aW9ucy5wcm90byIZCghEYXRlVGltZRINCgV0aWNrcxgBIAEoECI1Cg5E", 
+            "YXRlVGltZU9mZnNldBINCgV0aWNrcxgBIAEoEBIUCgxvZmZzZXRfdGlja3MY", 
+            "AiABKBAiOQoHRGVjaW1hbBIKCgJpMBgBIAEoDxIKCgJpMRgCIAEoDxIKCgJp", 
+            "MhgDIAEoDxIKCgJpMxgEIAEoDyIUCgRHdWlkEgwKBGJpdHMYASABKAwqVAoK", 
+            "Q1NoYXJwVHlwZRIJCgVrTm9uZRAAEg0KCWtEYXRlVGltZRABEhMKD2tEYXRl", 
+            "VGltZU9mZnNldBACEgwKCGtEZWNpbWFsEAMSCQoFa0d1aWQQBDpFCgR0eXBl", 
+            "Eh0uZ29vZ2xlLnByb3RvYnVmLkZpZWxkT3B0aW9ucxiGps0JIAEoDjIOLmNz", 
+            "LkNTaGFycFR5cGU6BWtOb25lQjTCPjEKHUdvb2dsZS5Qcm90b2NvbEJ1ZmZl", 
+          "cnMuQ1NoYXJwEhBDU2hhcnBUeXBlc1Byb3Rv"));
       pbd::FileDescriptor.InternalDescriptorAssigner assigner = delegate(pbd::FileDescriptor root) {
         descriptor = root;
-        internal__static_csharp_DateTime__Descriptor = Descriptor.MessageTypes[0];
-        internal__static_csharp_DateTime__FieldAccessorTable = 
-            new pb::FieldAccess.FieldAccessorTable<global::CSharp.DateTime, global::CSharp.DateTime.Builder>(internal__static_csharp_DateTime__Descriptor,
+        internal__static_cs_DateTime__Descriptor = Descriptor.MessageTypes[0];
+        internal__static_cs_DateTime__FieldAccessorTable = 
+            new pb::FieldAccess.FieldAccessorTable<global::Google.ProtocolBuffers.CSharp.DateTime, global::Google.ProtocolBuffers.CSharp.DateTime.Builder>(internal__static_cs_DateTime__Descriptor,
                 new string[] { "Ticks", });
-        internal__static_csharp_DateTimeOffset__Descriptor = Descriptor.MessageTypes[1];
-        internal__static_csharp_DateTimeOffset__FieldAccessorTable = 
-            new pb::FieldAccess.FieldAccessorTable<global::CSharp.DateTimeOffset, global::CSharp.DateTimeOffset.Builder>(internal__static_csharp_DateTimeOffset__Descriptor,
+        internal__static_cs_DateTimeOffset__Descriptor = Descriptor.MessageTypes[1];
+        internal__static_cs_DateTimeOffset__FieldAccessorTable = 
+            new pb::FieldAccess.FieldAccessorTable<global::Google.ProtocolBuffers.CSharp.DateTimeOffset, global::Google.ProtocolBuffers.CSharp.DateTimeOffset.Builder>(internal__static_cs_DateTimeOffset__Descriptor,
                 new string[] { "Ticks", "OffsetTicks", });
-        internal__static_csharp_Decimal__Descriptor = Descriptor.MessageTypes[2];
-        internal__static_csharp_Decimal__FieldAccessorTable = 
-            new pb::FieldAccess.FieldAccessorTable<global::CSharp.Decimal, global::CSharp.Decimal.Builder>(internal__static_csharp_Decimal__Descriptor,
+        internal__static_cs_Decimal__Descriptor = Descriptor.MessageTypes[2];
+        internal__static_cs_Decimal__FieldAccessorTable = 
+            new pb::FieldAccess.FieldAccessorTable<global::Google.ProtocolBuffers.CSharp.Decimal, global::Google.ProtocolBuffers.CSharp.Decimal.Builder>(internal__static_cs_Decimal__Descriptor,
                 new string[] { "I0", "I1", "I2", "I3", });
-        internal__static_csharp_Guid__Descriptor = Descriptor.MessageTypes[3];
-        internal__static_csharp_Guid__FieldAccessorTable = 
-            new pb::FieldAccess.FieldAccessorTable<global::CSharp.Guid, global::CSharp.Guid.Builder>(internal__static_csharp_Guid__Descriptor,
+        internal__static_cs_Guid__Descriptor = Descriptor.MessageTypes[3];
+        internal__static_cs_Guid__FieldAccessorTable = 
+            new pb::FieldAccess.FieldAccessorTable<global::Google.ProtocolBuffers.CSharp.Guid, global::Google.ProtocolBuffers.CSharp.Guid.Builder>(internal__static_cs_Guid__Descriptor,
                 new string[] { "Bits", });
-        global::CSharp.CSharpTypesProto.Type = pb::GeneratedSingleExtension<global::CSharp.CSharpType>.CreateInstance(global::CSharp.CSharpTypesProto.Descriptor.Extensions[0]);
+        global::Google.ProtocolBuffers.CSharp.CSharpTypesProto.Type = pb::GeneratedSingleExtension<global::Google.ProtocolBuffers.CSharp.CSharpType>.CreateInstance(global::Google.ProtocolBuffers.CSharp.CSharpTypesProto.Descriptor.Extensions[0]);
         pb::ExtensionRegistry registry = pb::ExtensionRegistry.CreateInstance();
         RegisterAllExtensions(registry);
         global::Google.ProtocolBuffers.DescriptorProtos.DescriptorProtoFile.RegisterAllExtensions(registry);
@@ -87,11 +88,11 @@ namespace CSharp {
   }
   #region Enums
   public enum CSharpType {
-    NONE = 0,
-    DATETIME = 1,
-    DATETIMEOFFSET = 2,
-    DECIMAL = 3,
-    GUID = 4,
+    kNone = 0,
+    kDateTime = 1,
+    kDateTimeOffset = 2,
+    kDecimal = 3,
+    kGuid = 4,
   }
   
   #endregion
@@ -116,11 +117,11 @@ namespace CSharp {
     }
     
     public static pbd::MessageDescriptor Descriptor {
-      get { return global::CSharp.CSharpTypesProto.internal__static_csharp_DateTime__Descriptor; }
+      get { return global::Google.ProtocolBuffers.CSharp.CSharpTypesProto.internal__static_cs_DateTime__Descriptor; }
     }
     
     protected override pb::FieldAccess.FieldAccessorTable<DateTime, DateTime.Builder> InternalFieldAccessors {
-      get { return global::CSharp.CSharpTypesProto.internal__static_csharp_DateTime__FieldAccessorTable; }
+      get { return global::Google.ProtocolBuffers.CSharp.CSharpTypesProto.internal__static_cs_DateTime__FieldAccessorTable; }
     }
     
     public const int TicksFieldNumber = 1;
@@ -255,11 +256,11 @@ namespace CSharp {
       }
       
       public override pbd::MessageDescriptor DescriptorForType {
-        get { return global::CSharp.DateTime.Descriptor; }
+        get { return global::Google.ProtocolBuffers.CSharp.DateTime.Descriptor; }
       }
       
       public override DateTime DefaultInstanceForType {
-        get { return global::CSharp.DateTime.DefaultInstance; }
+        get { return global::Google.ProtocolBuffers.CSharp.DateTime.DefaultInstance; }
       }
       
       public override DateTime BuildPartial() {
@@ -280,7 +281,7 @@ namespace CSharp {
       }
       
       public override Builder MergeFrom(DateTime other) {
-        if (other == global::CSharp.DateTime.DefaultInstance) return this;
+        if (other == global::Google.ProtocolBuffers.CSharp.DateTime.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasTicks) {
           Ticks = other.Ticks;
@@ -363,7 +364,7 @@ namespace CSharp {
       }
     }
     static DateTime() {
-      object.ReferenceEquals(global::CSharp.CSharpTypesProto.Descriptor, null);
+      object.ReferenceEquals(global::Google.ProtocolBuffers.CSharp.CSharpTypesProto.Descriptor, null);
     }
   }
   
@@ -386,11 +387,11 @@ namespace CSharp {
     }
     
     public static pbd::MessageDescriptor Descriptor {
-      get { return global::CSharp.CSharpTypesProto.internal__static_csharp_DateTimeOffset__Descriptor; }
+      get { return global::Google.ProtocolBuffers.CSharp.CSharpTypesProto.internal__static_cs_DateTimeOffset__Descriptor; }
     }
     
     protected override pb::FieldAccess.FieldAccessorTable<DateTimeOffset, DateTimeOffset.Builder> InternalFieldAccessors {
-      get { return global::CSharp.CSharpTypesProto.internal__static_csharp_DateTimeOffset__FieldAccessorTable; }
+      get { return global::Google.ProtocolBuffers.CSharp.CSharpTypesProto.internal__static_cs_DateTimeOffset__FieldAccessorTable; }
     }
     
     public const int TicksFieldNumber = 1;
@@ -541,11 +542,11 @@ namespace CSharp {
       }
       
       public override pbd::MessageDescriptor DescriptorForType {
-        get { return global::CSharp.DateTimeOffset.Descriptor; }
+        get { return global::Google.ProtocolBuffers.CSharp.DateTimeOffset.Descriptor; }
       }
       
       public override DateTimeOffset DefaultInstanceForType {
-        get { return global::CSharp.DateTimeOffset.DefaultInstance; }
+        get { return global::Google.ProtocolBuffers.CSharp.DateTimeOffset.DefaultInstance; }
       }
       
       public override DateTimeOffset BuildPartial() {
@@ -566,7 +567,7 @@ namespace CSharp {
       }
       
       public override Builder MergeFrom(DateTimeOffset other) {
-        if (other == global::CSharp.DateTimeOffset.DefaultInstance) return this;
+        if (other == global::Google.ProtocolBuffers.CSharp.DateTimeOffset.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasTicks) {
           Ticks = other.Ticks;
@@ -676,7 +677,7 @@ namespace CSharp {
       }
     }
     static DateTimeOffset() {
-      object.ReferenceEquals(global::CSharp.CSharpTypesProto.Descriptor, null);
+      object.ReferenceEquals(global::Google.ProtocolBuffers.CSharp.CSharpTypesProto.Descriptor, null);
     }
   }
   
@@ -699,11 +700,11 @@ namespace CSharp {
     }
     
     public static pbd::MessageDescriptor Descriptor {
-      get { return global::CSharp.CSharpTypesProto.internal__static_csharp_Decimal__Descriptor; }
+      get { return global::Google.ProtocolBuffers.CSharp.CSharpTypesProto.internal__static_cs_Decimal__Descriptor; }
     }
     
     protected override pb::FieldAccess.FieldAccessorTable<Decimal, Decimal.Builder> InternalFieldAccessors {
-      get { return global::CSharp.CSharpTypesProto.internal__static_csharp_Decimal__FieldAccessorTable; }
+      get { return global::Google.ProtocolBuffers.CSharp.CSharpTypesProto.internal__static_cs_Decimal__FieldAccessorTable; }
     }
     
     public const int I0FieldNumber = 1;
@@ -886,11 +887,11 @@ namespace CSharp {
       }
       
       public override pbd::MessageDescriptor DescriptorForType {
-        get { return global::CSharp.Decimal.Descriptor; }
+        get { return global::Google.ProtocolBuffers.CSharp.Decimal.Descriptor; }
       }
       
       public override Decimal DefaultInstanceForType {
-        get { return global::CSharp.Decimal.DefaultInstance; }
+        get { return global::Google.ProtocolBuffers.CSharp.Decimal.DefaultInstance; }
       }
       
       public override Decimal BuildPartial() {
@@ -911,7 +912,7 @@ namespace CSharp {
       }
       
       public override Builder MergeFrom(Decimal other) {
-        if (other == global::CSharp.Decimal.DefaultInstance) return this;
+        if (other == global::Google.ProtocolBuffers.CSharp.Decimal.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasI0) {
           I0 = other.I0;
@@ -1075,7 +1076,7 @@ namespace CSharp {
       }
     }
     static Decimal() {
-      object.ReferenceEquals(global::CSharp.CSharpTypesProto.Descriptor, null);
+      object.ReferenceEquals(global::Google.ProtocolBuffers.CSharp.CSharpTypesProto.Descriptor, null);
     }
   }
   
@@ -1098,11 +1099,11 @@ namespace CSharp {
     }
     
     public static pbd::MessageDescriptor Descriptor {
-      get { return global::CSharp.CSharpTypesProto.internal__static_csharp_Guid__Descriptor; }
+      get { return global::Google.ProtocolBuffers.CSharp.CSharpTypesProto.internal__static_cs_Guid__Descriptor; }
     }
     
     protected override pb::FieldAccess.FieldAccessorTable<Guid, Guid.Builder> InternalFieldAccessors {
-      get { return global::CSharp.CSharpTypesProto.internal__static_csharp_Guid__FieldAccessorTable; }
+      get { return global::Google.ProtocolBuffers.CSharp.CSharpTypesProto.internal__static_cs_Guid__FieldAccessorTable; }
     }
     
     public const int BitsFieldNumber = 1;
@@ -1237,11 +1238,11 @@ namespace CSharp {
       }
       
       public override pbd::MessageDescriptor DescriptorForType {
-        get { return global::CSharp.Guid.Descriptor; }
+        get { return global::Google.ProtocolBuffers.CSharp.Guid.Descriptor; }
       }
       
       public override Guid DefaultInstanceForType {
-        get { return global::CSharp.Guid.DefaultInstance; }
+        get { return global::Google.ProtocolBuffers.CSharp.Guid.DefaultInstance; }
       }
       
       public override Guid BuildPartial() {
@@ -1262,7 +1263,7 @@ namespace CSharp {
       }
       
       public override Builder MergeFrom(Guid other) {
-        if (other == global::CSharp.Guid.DefaultInstance) return this;
+        if (other == global::Google.ProtocolBuffers.CSharp.Guid.DefaultInstance) return this;
         PrepareBuilder();
         if (other.HasBits) {
           Bits = other.Bits;
@@ -1346,7 +1347,7 @@ namespace CSharp {
       }
     }
     static Guid() {
-      object.ReferenceEquals(global::CSharp.CSharpTypesProto.Descriptor, null);
+      object.ReferenceEquals(global::Google.ProtocolBuffers.CSharp.CSharpTypesProto.Descriptor, null);
     }
   }
   

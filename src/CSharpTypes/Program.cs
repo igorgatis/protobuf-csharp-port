@@ -10,6 +10,7 @@ namespace CSharpTypes
     {
         static void Main(string[] args)
         {
+            
         }
     }
 }

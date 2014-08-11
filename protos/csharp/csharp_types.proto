@@ -1,11 +1,23 @@
-// C# types.
+package cs;
+
 import "google/protobuf/descriptor.proto";
 import "google/protobuf/csharp_options.proto";
 
-option (google.protobuf.csharp_file_options).namespace = "CSharp";
+option (google.protobuf.csharp_file_options).namespace = "Google.ProtocolBuffers.CSharp";
 option (google.protobuf.csharp_file_options).umbrella_classname = "CSharpTypesProto";
 
-package csharp;
+// String based types.
+enum CSharpType {
+  kNone = 0;
+  kDateTime= 1;
+  kDateTimeOffset = 2;
+  kDecimal = 3;
+  kGuid = 4;
+}
+
+extend google.protobuf.FieldOptions {
+  optional CSharpType type = 20140806 [default=kNone];
+}
 
 // DateTime stored as Ticks.
 // http://msdn.microsoft.com/en-us/library/system.datetime.ticks(v=vs.110).aspx
@@ -34,16 +46,4 @@ message Decimal {
 // http://msdn.microsoft.com/en-us/library/90ck37x3(v=vs.110).aspx
 message Guid {
   optional bytes bits = 1;
-}
-
-enum CSharpType {
-  NONE = 0;
-  DATETIME= 1;
-  DATETIMEOFFSET = 2;
-  DECIMAL = 3;
-  GUID = 4;
-}
-
-extend google.protobuf.FieldOptions {
-  optional CSharpType type = 20140806 [default=NONE];
 }

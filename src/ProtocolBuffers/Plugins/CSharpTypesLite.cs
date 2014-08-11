@@ -36,122 +36,12 @@
 
 using Google.ProtocolBuffers.Descriptors;
 using System.Globalization;
-using System;
 
-namespace Google.ProtocolBuffers.Plugins
+namespace Google.ProtocolBuffers.CSharp
 {
-    public enum CSharpType
-    {
-        NotSupported = 0,
-        DateTime = 1,
-        DateTimeOffset = 2,
-        Decimal = 3,
-        Guid = 4,
-    }
-
     public static partial class CSharpTypes
     {
-        public static CSharpType GetCSharpType(string name)
-        {
-            switch (name)
-            {
-                case "CSharp.DateTime":
-                    return CSharpType.DateTime;
-                case "CSharp.DateTimeOffset":
-                    return CSharpType.DateTimeOffset;
-                case "CSharp.Decimal":
-                    return CSharpType.Decimal;
-                case "CSharp.Guid":
-                    return CSharpType.Guid;
-            }
-            return CSharpType.NotSupported;
-        }
-
-        public static bool ToString(CSharpType type, object value, out string text)
-        {
-            switch (type)
-            {
-                case CSharpType.DateTime:
-                    text = ((DateTime)value).ToString("O");
-                    return true;
-                case CSharpType.DateTimeOffset:
-                    text = ((DateTimeOffset)value).ToString("O");
-                    return true;
-                case CSharpType.Decimal:
-                    text = ((Decimal)value).ToString(CultureInfo.InvariantCulture);
-                    return true;
-                case CSharpType.Guid:
-                    text = ((Guid)value).ToString("N");
-                    return true;
-            }
-            text = "";
-            return false;
-        }
-
-        public static bool ToString(object value, out string text)
-        {
-            if (value is DateTime)
-            {
-                return ToString(CSharpType.DateTime, value, out text);
-            }
-            if (value is DateTimeOffset)
-            {
-                return ToString(CSharpType.DateTimeOffset, value, out text);
-            }
-            if (value is decimal)
-            {
-                return ToString(CSharpType.Decimal, value, out text);
-            }
-            if (value is Guid)
-            {
-                return ToString(CSharpType.Guid, value, out text);
-            }
-            text = "";
-            return false;
-        }
-
-        public static bool TryParse(CSharpType type, string text, out object value)
-        {
-            value = null;
-            if (text == null) return false;
-            var culture = CultureInfo.InvariantCulture;
-            switch (type)
-            {
-                case CSharpType.DateTime:
-                    DateTime date;
-                    if (DateTime.TryParse(text, culture, DateTimeStyles.AssumeUniversal, out date))
-                    {
-                        value = date;
-                        return true;
-                    }
-                    break;
-                case CSharpType.DateTimeOffset:
-                    DateTimeOffset dateTimeOffset;
-                    if (DateTimeOffset.TryParse(text, culture, DateTimeStyles.AssumeUniversal, out dateTimeOffset))
-                    {
-                        value = dateTimeOffset;
-                        return true;
-                    }
-                    break;
-                case CSharpType.Decimal:
-                    decimal dec;
-                    if (Decimal.TryParse(text, NumberStyles.Any, culture, out dec))
-                    {
-                        value = dec;
-                        return true;
-                    }
-                    break;
-                case CSharpType.Guid:
-                    try
-                    {
-                        value = new Guid(text);
-                        return true;
-                    }
-                    catch (Exception) { }
-                    break;
-            }
-            return false;
-        }
-
+        /*
+        */
     }
 }

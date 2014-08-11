@@ -1,4 +1,5 @@
 using Google.ProtocolBuffers.Compiler.PluginProto;
+using Google.ProtocolBuffers.CSharp;
 using Google.ProtocolBuffers.DescriptorProtos;
 using System;
 using System.Collections.Generic;
@@ -45,11 +46,13 @@ namespace Google.ProtocolBuffers.ProtoGen
 
         public static int Main(string[] args)
         {
+            CSharpTypes.Inactive = true;  // Makes sure C# native types is disabled.
             // Hack to make sure everything's initialized
             DescriptorProtoFile.Descriptor.ToString();
             ExtensionRegistry extensionRegistry = ExtensionRegistry.CreateInstance();
             CSharpOptions.RegisterAllExtensions(extensionRegistry);
-            CSharp.CSharpTypesProto.RegisterAllExtensions(extensionRegistry);
+            CSharpTypesProto.RegisterAllExtensions(extensionRegistry);
+            CSharpTypes.Inactive = false;
 
             CodeGeneratorRequest request;
             var response = new CodeGeneratorResponse.Builder();

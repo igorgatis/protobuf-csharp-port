@@ -145,6 +145,7 @@ namespace Google.ProtocolBuffers.ProtoGen
             writer.WriteLine();
             writer.WriteLine("using pb = global::Google.ProtocolBuffers;");
             writer.WriteLine("using pbc = global::Google.ProtocolBuffers.Collections;");
+            writer.WriteLine("using cs = global::Google.ProtocolBuffers.CSharp;");
             writer.WriteLine("using pbd = global::Google.ProtocolBuffers.Descriptors;");
             writer.WriteLine("using scg = global::System.Collections.Generic;");
 

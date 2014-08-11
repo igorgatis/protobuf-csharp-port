@@ -80,7 +80,7 @@ namespace Google.ProtocolBuffers.FieldAccess
         /// </summary>   
         private static IFieldAccessor<TMessage, TBuilder> CreateAccessor(FieldDescriptor field, string name)
         {
-            var pluginAccessor = Plugins.CSharpTypes.CreateAccessor<TMessage, TBuilder>(field, name);
+            var pluginAccessor = CSharp.CSharpTypes.CreateAccessor<TMessage, TBuilder>(field, name);
             if (pluginAccessor != null) return pluginAccessor;
             if (field.IsRepeated)
             {

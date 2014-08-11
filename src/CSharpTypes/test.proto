@@ -2,30 +2,29 @@ package tutorial;
  
 import "csharp/csharp_types.proto";
 
-/*
 message Msg1 {
-  optional csharp.DateTime opt_date_time = 1;
-  optional csharp.DateTimeOffset opt_date_time_offset = 2;
-  optional csharp.Decimal opt_decimal = 3;
-  optional csharp.Guid opt_guid = 4;
+  optional cs.DateTime opt_date_time = 1;
+  optional cs.DateTimeOffset opt_date_time_offset = 2;
+  optional cs.Decimal opt_decimal = 3;
+  optional cs.Guid opt_guid = 4;
 
-  repeated csharp.DateTime rep_date_time = 5;
-  repeated csharp.DateTimeOffset rep_date_time_offset = 6;
-  repeated csharp.Decimal rep_decimal = 7;
-  repeated csharp.Guid rep_guid = 8;
+  repeated cs.DateTime rep_date_time = 5;
+  repeated cs.DateTimeOffset rep_date_time_offset = 6;
+  repeated cs.Decimal rep_decimal = 7;
+  repeated cs.Guid rep_guid = 8;
 }
-*/
 
 message Msg2 {
-  optional string opt_date_time = 1 [(csharp.type)=DATETIME];
-  optional string opt_date_time_offset = 2 [(csharp.type)=DATETIMEOFFSET];
-  optional string opt_decimal = 3 [(csharp.type)=DECIMAL];
-  optional string opt_guid = 4 [(csharp.type)=GUID];
+  optional string opt_date_time = 1 [(cs.type)=kDateTime];
+  optional string opt_date_time_offset = 2 [(cs.type)=kDateTimeOffset];
+  optional string opt_decimal = 3 [(cs.type)=kDecimal, default="0.01"];
+  optional string opt_guid = 4 [(cs.type)=kGuid];
 
-  repeated string rep_date_time = 5 [(csharp.type)=DATETIME];
-  repeated string rep_date_time_offset = 6 [(csharp.type)=DATETIMEOFFSET];
-  repeated string rep_decimal = 7 [(csharp.type)=DECIMAL];
-  repeated string rep_guid = 8 [(csharp.type)=GUID];
+  repeated string rep_date_time = 5 [(cs.type)=kDateTime];
+  repeated string rep_date_time_offset = 6 [(cs.type)=kDateTimeOffset];
+  repeated string rep_decimal = 7 [(cs.type)=kDecimal];
+  repeated string rep_guid = 8 [(cs.type)=kGuid];
 
-  repeated string rep_str = 10;
+  optional string opt_str = 10;
+  repeated string rep_str = 11;
 }

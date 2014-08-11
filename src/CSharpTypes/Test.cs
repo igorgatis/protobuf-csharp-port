@@ -4,6 +4,7 @@
 
 using pb = global::Google.ProtocolBuffers;
 using pbc = global::Google.ProtocolBuffers.Collections;
+using cs = global::Google.ProtocolBuffers.CSharp;
 using pbd = global::Google.ProtocolBuffers.Descriptors;
 using scg = global::System.Collections.Generic;
 namespace tutorial {
@@ -16,6 +17,8 @@ namespace tutorial {
     }
     #endregion
     #region Static variables
+    internal static pbd::MessageDescriptor internal__static_tutorial_Msg1__Descriptor;
+    internal static pb::FieldAccess.FieldAccessorTable<global::tutorial.Msg1, global::tutorial.Msg1.Builder> internal__static_tutorial_Msg1__FieldAccessorTable;
     internal static pbd::MessageDescriptor internal__static_tutorial_Msg2__Descriptor;
     internal static pb::FieldAccess.FieldAccessorTable<global::tutorial.Msg2, global::tutorial.Msg2.Builder> internal__static_tutorial_Msg2__FieldAccessorTable;
     #endregion
@@ -29,26 +32,38 @@ namespace tutorial {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Cgp0ZXN0LnByb3RvEgh0dXRvcmlhbBoZY3NoYXJwL2NzaGFycF90eXBlcy5w", 
-            "cm90byKHAgoETXNnMhIcCg1vcHRfZGF0ZV90aW1lGAEgASgJQgWwsOpMARIj", 
-            "ChRvcHRfZGF0ZV90aW1lX29mZnNldBgCIAEoCUIFsLDqTAISGgoLb3B0X2Rl", 
-            "Y2ltYWwYAyABKAlCBbCw6kwDEhcKCG9wdF9ndWlkGAQgASgJQgWwsOpMBBIc", 
-            "Cg1yZXBfZGF0ZV90aW1lGAUgAygJQgWwsOpMARIjChRyZXBfZGF0ZV90aW1l", 
-            "X29mZnNldBgGIAMoCUIFsLDqTAISGgoLcmVwX2RlY2ltYWwYByADKAlCBbCw", 
-          "6kwDEhcKCHJlcF9ndWlkGAggAygJQgWwsOpMBBIPCgdyZXBfc3RyGAogAygJ"));
+            "cm90byKwAgoETXNnMRIjCg1vcHRfZGF0ZV90aW1lGAEgASgLMgwuY3MuRGF0", 
+            "ZVRpbWUSMAoUb3B0X2RhdGVfdGltZV9vZmZzZXQYAiABKAsyEi5jcy5EYXRl", 
+            "VGltZU9mZnNldBIgCgtvcHRfZGVjaW1hbBgDIAEoCzILLmNzLkRlY2ltYWwS", 
+            "GgoIb3B0X2d1aWQYBCABKAsyCC5jcy5HdWlkEiMKDXJlcF9kYXRlX3RpbWUY", 
+            "BSADKAsyDC5jcy5EYXRlVGltZRIwChRyZXBfZGF0ZV90aW1lX29mZnNldBgG", 
+            "IAMoCzISLmNzLkRhdGVUaW1lT2Zmc2V0EiAKC3JlcF9kZWNpbWFsGAcgAygL", 
+            "MgsuY3MuRGVjaW1hbBIaCghyZXBfZ3VpZBgIIAMoCzIILmNzLkd1aWQingIK", 
+            "BE1zZzISHAoNb3B0X2RhdGVfdGltZRgBIAEoCUIFsLDqTAESIwoUb3B0X2Rh", 
+            "dGVfdGltZV9vZmZzZXQYAiABKAlCBbCw6kwCEiAKC29wdF9kZWNpbWFsGAMg", 
+            "ASgJOgQwLjAxQgWwsOpMAxIXCghvcHRfZ3VpZBgEIAEoCUIFsLDqTAQSHAoN", 
+            "cmVwX2RhdGVfdGltZRgFIAMoCUIFsLDqTAESIwoUcmVwX2RhdGVfdGltZV9v", 
+            "ZmZzZXQYBiADKAlCBbCw6kwCEhoKC3JlcF9kZWNpbWFsGAcgAygJQgWwsOpM", 
+            "AxIXCghyZXBfZ3VpZBgIIAMoCUIFsLDqTAQSDwoHb3B0X3N0chgKIAEoCRIP", 
+          "CgdyZXBfc3RyGAsgAygJ"));
       pbd::FileDescriptor.InternalDescriptorAssigner assigner = delegate(pbd::FileDescriptor root) {
         descriptor = root;
-        internal__static_tutorial_Msg2__Descriptor = Descriptor.MessageTypes[0];
+        internal__static_tutorial_Msg1__Descriptor = Descriptor.MessageTypes[0];
+        internal__static_tutorial_Msg1__FieldAccessorTable = 
+            new pb::FieldAccess.FieldAccessorTable<global::tutorial.Msg1, global::tutorial.Msg1.Builder>(internal__static_tutorial_Msg1__Descriptor,
+                new string[] { "OptDateTime", "OptDateTimeOffset", "OptDecimal", "OptGuid", "RepDateTime", "RepDateTimeOffset", "RepDecimal", "RepGuid", });
+        internal__static_tutorial_Msg2__Descriptor = Descriptor.MessageTypes[1];
         internal__static_tutorial_Msg2__FieldAccessorTable = 
             new pb::FieldAccess.FieldAccessorTable<global::tutorial.Msg2, global::tutorial.Msg2.Builder>(internal__static_tutorial_Msg2__Descriptor,
-                new string[] { "OptDateTime", "OptDateTimeOffset", "OptDecimal", "OptGuid", "RepDateTime", "RepDateTimeOffset", "RepDecimal", "RepGuid", "RepStr", });
+                new string[] { "OptDateTime", "OptDateTimeOffset", "OptDecimal", "OptGuid", "RepDateTime", "RepDateTimeOffset", "RepDecimal", "RepGuid", "OptStr", "RepStr", });
         pb::ExtensionRegistry registry = pb::ExtensionRegistry.CreateInstance();
         RegisterAllExtensions(registry);
-        global::CSharp.CSharpTypesProto.RegisterAllExtensions(registry);
+        global::Google.ProtocolBuffers.CSharp.CSharpTypesProto.RegisterAllExtensions(registry);
         return registry;
       };
       pbd::FileDescriptor.InternalBuildGeneratedFileFrom(descriptorData,
           new pbd::FileDescriptor[] {
-          global::CSharp.CSharpTypesProto.Descriptor, 
+          global::Google.ProtocolBuffers.CSharp.CSharpTypesProto.Descriptor, 
           }, assigner);
     }
     #endregion
@@ -56,11 +71,781 @@ namespace tutorial {
   }
   #region Messages
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class Msg1 : pb::GeneratedMessage<Msg1, Msg1.Builder> {
+    private Msg1() { }
+    private static readonly Msg1 defaultInstance = new Msg1().MakeReadOnly();
+    private static readonly string[] _msg1FieldNames = new string[] { "opt_date_time", "opt_date_time_offset", "opt_decimal", "opt_guid", "rep_date_time", "rep_date_time_offset", "rep_decimal", "rep_guid" };
+    private static readonly uint[] _msg1FieldTags = new uint[] { 10, 18, 26, 34, 42, 50, 58, 66 };
+    public static Msg1 DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    public override Msg1 DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override Msg1 ThisMessage {
+      get { return this; }
+    }
+    
+    public static pbd::MessageDescriptor Descriptor {
+      get { return global::tutorial.Test.internal__static_tutorial_Msg1__Descriptor; }
+    }
+    
+    protected override pb::FieldAccess.FieldAccessorTable<Msg1, Msg1.Builder> InternalFieldAccessors {
+      get { return global::tutorial.Test.internal__static_tutorial_Msg1__FieldAccessorTable; }
+    }
+    
+    public const int OptDateTimeFieldNumber = 1;
+    private bool hasOptDateTime;
+    private System.DateTime optDateTime_;
+    public bool HasOptDateTime {
+      get { return hasOptDateTime; }
+    }
+    public System.DateTime OptDateTime {
+      get { return optDateTime_; }
+    }
+    public global::Google.ProtocolBuffers.CSharp.DateTime GetOptDateTimeProto() {
+      global::Google.ProtocolBuffers.CSharp.DateTime.Builder proto = global::Google.ProtocolBuffers.CSharp.DateTime.CreateBuilder();
+      proto.SetTicks(optDateTime_.Ticks);
+      return proto.BuildPartial();
+    }
+    
+    public const int OptDateTimeOffsetFieldNumber = 2;
+    private bool hasOptDateTimeOffset;
+    private System.DateTimeOffset optDateTimeOffset_;
+    public bool HasOptDateTimeOffset {
+      get { return hasOptDateTimeOffset; }
+    }
+    public System.DateTimeOffset OptDateTimeOffset {
+      get { return optDateTimeOffset_; }
+    }
+    public global::Google.ProtocolBuffers.CSharp.DateTimeOffset GetOptDateTimeOffsetProto() {
+      global::Google.ProtocolBuffers.CSharp.DateTimeOffset.Builder proto = global::Google.ProtocolBuffers.CSharp.DateTimeOffset.CreateBuilder();
+      proto.SetTicks(optDateTimeOffset_.Ticks);
+      proto.SetOffsetTicks(optDateTimeOffset_.Offset.Ticks);
+      return proto.BuildPartial();
+    }
+    
+    public const int OptDecimalFieldNumber = 3;
+    private bool hasOptDecimal;
+    private decimal optDecimal_;
+    public bool HasOptDecimal {
+      get { return hasOptDecimal; }
+    }
+    public decimal OptDecimal {
+      get { return optDecimal_; }
+    }
+    public global::Google.ProtocolBuffers.CSharp.Decimal GetOptDecimalProto() {
+      global::Google.ProtocolBuffers.CSharp.Decimal.Builder proto = global::Google.ProtocolBuffers.CSharp.Decimal.CreateBuilder();
+      var bits = decimal.GetBits(optDecimal_);
+      proto.SetI0(bits[0]).SetI1(bits[1]).SetI2(bits[2]).SetI3(bits[3]);
+      return proto.BuildPartial();
+    }
+    
+    public const int OptGuidFieldNumber = 4;
+    private bool hasOptGuid;
+    private System.Guid optGuid_;
+    public bool HasOptGuid {
+      get { return hasOptGuid; }
+    }
+    public System.Guid OptGuid {
+      get { return optGuid_; }
+    }
+    public global::Google.ProtocolBuffers.CSharp.Guid GetOptGuidProto() {
+      global::Google.ProtocolBuffers.CSharp.Guid.Builder proto = global::Google.ProtocolBuffers.CSharp.Guid.CreateBuilder();
+      var bytes = optGuid_.ToByteArray();
+      proto.SetBits(pb::ByteString.Unsafe.FromBytes(bytes));
+      return proto.BuildPartial();
+    }
+    
+    public const int RepDateTimeFieldNumber = 5;
+    private pbc::PopsicleList<System.DateTime> repDateTime_ = new pbc::PopsicleList<System.DateTime>();
+    public scg::IList<System.DateTime> RepDateTimeList {
+      get { return pbc::Lists.AsReadOnly(repDateTime_); }
+    }
+    public int RepDateTimeCount {
+      get { return repDateTime_.Count; }
+    }
+    public System.DateTime GetRepDateTime(int index) {
+      return repDateTime_[index];
+    }
+    public global::Google.ProtocolBuffers.CSharp.DateTime GetRepDateTimeProto(int index) {
+      global::Google.ProtocolBuffers.CSharp.DateTime.Builder proto = global::Google.ProtocolBuffers.CSharp.DateTime.CreateBuilder();
+      proto.SetTicks(repDateTime_[index].Ticks);
+      return proto.BuildPartial();
+    }
+    
+    public const int RepDateTimeOffsetFieldNumber = 6;
+    private pbc::PopsicleList<System.DateTimeOffset> repDateTimeOffset_ = new pbc::PopsicleList<System.DateTimeOffset>();
+    public scg::IList<System.DateTimeOffset> RepDateTimeOffsetList {
+      get { return pbc::Lists.AsReadOnly(repDateTimeOffset_); }
+    }
+    public int RepDateTimeOffsetCount {
+      get { return repDateTimeOffset_.Count; }
+    }
+    public System.DateTimeOffset GetRepDateTimeOffset(int index) {
+      return repDateTimeOffset_[index];
+    }
+    public global::Google.ProtocolBuffers.CSharp.DateTimeOffset GetRepDateTimeOffsetProto(int index) {
+      global::Google.ProtocolBuffers.CSharp.DateTimeOffset.Builder proto = global::Google.ProtocolBuffers.CSharp.DateTimeOffset.CreateBuilder();
+      var item = repDateTimeOffset_[index];
+      proto.SetTicks(item.Ticks);
+      proto.SetOffsetTicks(item.Offset.Ticks);
+      return proto.BuildPartial();
+    }
+    
+    public const int RepDecimalFieldNumber = 7;
+    private pbc::PopsicleList<decimal> repDecimal_ = new pbc::PopsicleList<decimal>();
+    public scg::IList<decimal> RepDecimalList {
+      get { return pbc::Lists.AsReadOnly(repDecimal_); }
+    }
+    public int RepDecimalCount {
+      get { return repDecimal_.Count; }
+    }
+    public decimal GetRepDecimal(int index) {
+      return repDecimal_[index];
+    }
+    public global::Google.ProtocolBuffers.CSharp.Decimal GetRepDecimalProto(int index) {
+      global::Google.ProtocolBuffers.CSharp.Decimal.Builder proto = global::Google.ProtocolBuffers.CSharp.Decimal.CreateBuilder();
+      var bits = decimal.GetBits(repDecimal_[index]);
+      proto.SetI0(bits[0]).SetI1(bits[1]).SetI2(bits[2]).SetI3(bits[3]);
+      return proto.BuildPartial();
+    }
+    
+    public const int RepGuidFieldNumber = 8;
+    private pbc::PopsicleList<System.Guid> repGuid_ = new pbc::PopsicleList<System.Guid>();
+    public scg::IList<System.Guid> RepGuidList {
+      get { return pbc::Lists.AsReadOnly(repGuid_); }
+    }
+    public int RepGuidCount {
+      get { return repGuid_.Count; }
+    }
+    public System.Guid GetRepGuid(int index) {
+      return repGuid_[index];
+    }
+    public global::Google.ProtocolBuffers.CSharp.Guid GetRepGuidProto(int index) {
+      global::Google.ProtocolBuffers.CSharp.Guid.Builder proto = global::Google.ProtocolBuffers.CSharp.Guid.CreateBuilder();
+      var bytes = repGuid_[index].ToByteArray();
+      proto.SetBits(pb::ByteString.Unsafe.FromBytes(bytes));
+      return proto.BuildPartial();
+    }
+    
+    public override bool IsInitialized {
+      get {
+        return true;
+      }
+    }
+    
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _msg1FieldNames;
+      if (hasOptDateTime) {
+        output.WriteMessage(1, field_names[0], GetOptDateTimeProto());
+      }
+      if (hasOptDateTimeOffset) {
+        output.WriteMessage(2, field_names[1], GetOptDateTimeOffsetProto());
+      }
+      if (hasOptDecimal) {
+        output.WriteMessage(3, field_names[2], GetOptDecimalProto());
+      }
+      if (hasOptGuid) {
+        output.WriteMessage(4, field_names[3], GetOptGuidProto());
+      }
+      if (repDateTime_.Count > 0) {
+        for (int i = 0; i < repDateTime_.Count; ++i) {
+          var element = GetRepDateTimeProto(i);
+          output.WriteMessage(5, field_names[4], element);
+        }
+      }
+      if (repDateTimeOffset_.Count > 0) {
+        for (int i = 0; i < repDateTimeOffset_.Count; ++i) {
+          var element = GetRepDateTimeOffsetProto(i);
+          output.WriteMessage(6, field_names[5], element);
+        }
+      }
+      if (repDecimal_.Count > 0) {
+        for (int i = 0; i < repDecimal_.Count; ++i) {
+          var element = GetRepDecimalProto(i);
+          output.WriteMessage(7, field_names[6], element);
+        }
+      }
+      if (repGuid_.Count > 0) {
+        for (int i = 0; i < repGuid_.Count; ++i) {
+          var element = GetRepGuidProto(i);
+          output.WriteMessage(8, field_names[7], element);
+        }
+      }
+      UnknownFields.WriteTo(output);
+    }
+    
+    private int memoizedSerializedSize = -1;
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasOptDateTime) {
+          size += pb::CodedOutputStream.ComputeMessageSize(1, GetOptDateTimeProto());
+        }
+        if (hasOptDateTimeOffset) {
+          size += pb::CodedOutputStream.ComputeMessageSize(2, GetOptDateTimeOffsetProto());
+        }
+        if (hasOptDecimal) {
+          size += pb::CodedOutputStream.ComputeMessageSize(3, GetOptDecimalProto());
+        }
+        if (hasOptGuid) {
+          size += pb::CodedOutputStream.ComputeMessageSize(4, GetOptGuidProto());
+        }
+        {
+          int dataSize = 0;
+          for (int i = 0; i < repDateTime_.Count; ++i) {
+            var element = GetRepDateTimeProto(i);
+            dataSize += pb::CodedOutputStream.ComputeMessageSize(5, element);
+          }
+          size += dataSize;
+        }
+        {
+          int dataSize = 0;
+          for (int i = 0; i < repDateTimeOffset_.Count; ++i) {
+            var element = GetRepDateTimeOffsetProto(i);
+            dataSize += pb::CodedOutputStream.ComputeMessageSize(6, element);
+          }
+          size += dataSize;
+        }
+        {
+          int dataSize = 0;
+          for (int i = 0; i < repDecimal_.Count; ++i) {
+            var element = GetRepDecimalProto(i);
+            dataSize += pb::CodedOutputStream.ComputeMessageSize(7, element);
+          }
+          size += dataSize;
+        }
+        {
+          int dataSize = 0;
+          for (int i = 0; i < repGuid_.Count; ++i) {
+            var element = GetRepGuidProto(i);
+            dataSize += pb::CodedOutputStream.ComputeMessageSize(8, element);
+          }
+          size += dataSize;
+        }
+        size += UnknownFields.SerializedSize;
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    public static Msg1 ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    public static Msg1 ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    public static Msg1 ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    public static Msg1 ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    public static Msg1 ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    public static Msg1 ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    public static Msg1 ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    public static Msg1 ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    public static Msg1 ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    public static Msg1 ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private Msg1 MakeReadOnly() {
+      repDateTime_.MakeReadOnly();
+      repDateTimeOffset_.MakeReadOnly();
+      repDecimal_.MakeReadOnly();
+      repGuid_.MakeReadOnly();
+      return this;
+    }
+    
+    public static Builder CreateBuilder() { return new Builder(); }
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    public static Builder CreateBuilder(Msg1 prototype) {
+      return new Builder(prototype);
+    }
+    
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public sealed partial class Builder : pb::GeneratedBuilder<Msg1, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(Msg1 cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private Msg1 result;
+      
+      private Msg1 PrepareBuilder() {
+        if (resultIsReadOnly) {
+          Msg1 original = result;
+          result = new Msg1();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override Msg1 MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override pbd::MessageDescriptor DescriptorForType {
+        get { return global::tutorial.Msg1.Descriptor; }
+      }
+      
+      public override Msg1 DefaultInstanceForType {
+        get { return global::tutorial.Msg1.DefaultInstance; }
+      }
+      
+      public override Msg1 BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessage other) {
+        if (other is Msg1) {
+          return MergeFrom((Msg1) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(Msg1 other) {
+        if (other == global::tutorial.Msg1.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasOptDateTime) {
+          OptDateTime = other.OptDateTime;
+        }
+        if (other.HasOptDateTimeOffset) {
+          OptDateTimeOffset = other.OptDateTimeOffset;
+        }
+        if (other.HasOptDecimal) {
+          OptDecimal = other.OptDecimal;
+        }
+        if (other.HasOptGuid) {
+          OptGuid = other.OptGuid;
+        }
+        if (other.repDateTime_.Count != 0) {
+          result.repDateTime_.Add(other.repDateTime_);
+        }
+        if (other.repDateTimeOffset_.Count != 0) {
+          result.repDateTimeOffset_.Add(other.repDateTimeOffset_);
+        }
+        if (other.repDecimal_.Count != 0) {
+          result.repDecimal_.Add(other.repDecimal_);
+        }
+        if (other.repGuid_.Count != 0) {
+          result.repGuid_.Add(other.repGuid_);
+        }
+        this.MergeUnknownFields(other.UnknownFields);
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        pb::UnknownFieldSet.Builder unknownFields = null;
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_msg1FieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _msg1FieldTags[field_ordinal];
+            else {
+              if (unknownFields == null) {
+                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+              }
+              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                if (unknownFields != null) {
+                  this.UnknownFields = unknownFields.Build();
+                }
+                return this;
+              }
+              if (unknownFields == null) {
+                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+              }
+              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 10: {
+              global::Google.ProtocolBuffers.CSharp.DateTime.Builder subBuilder = global::Google.ProtocolBuffers.CSharp.DateTime.CreateBuilder();
+              input.ReadMessage(subBuilder, extensionRegistry);
+              SetOptDateTimeProto(subBuilder.BuildPartial());
+              break;
+            }
+            case 18: {
+              global::Google.ProtocolBuffers.CSharp.DateTimeOffset.Builder subBuilder = global::Google.ProtocolBuffers.CSharp.DateTimeOffset.CreateBuilder();
+              input.ReadMessage(subBuilder, extensionRegistry);
+              SetOptDateTimeOffsetProto(subBuilder.BuildPartial());
+              break;
+            }
+            case 26: {
+              global::Google.ProtocolBuffers.CSharp.Decimal.Builder subBuilder = global::Google.ProtocolBuffers.CSharp.Decimal.CreateBuilder();
+              input.ReadMessage(subBuilder, extensionRegistry);
+              SetOptDecimalProto(subBuilder.BuildPartial());
+              break;
+            }
+            case 34: {
+              global::Google.ProtocolBuffers.CSharp.Guid.Builder subBuilder = global::Google.ProtocolBuffers.CSharp.Guid.CreateBuilder();
+              input.ReadMessage(subBuilder, extensionRegistry);
+              SetOptGuidProto(subBuilder.BuildPartial());
+              break;
+            }
+            case 42: {
+              var list = new System.Collections.Generic.List<global::Google.ProtocolBuffers.CSharp.DateTime>();
+              input.ReadMessageArray(tag, field_name, list, global::Google.ProtocolBuffers.CSharp.DateTime.DefaultInstance, extensionRegistry);
+              foreach (var item in list) {
+                AddRepDateTimeProto(item);
+              }
+              break;
+            }
+            case 50: {
+              var list = new System.Collections.Generic.List<global::Google.ProtocolBuffers.CSharp.DateTimeOffset>();
+              input.ReadMessageArray(tag, field_name, list, global::Google.ProtocolBuffers.CSharp.DateTimeOffset.DefaultInstance, extensionRegistry);
+              foreach (var item in list) {
+                AddRepDateTimeOffsetProto(item);
+              }
+              break;
+            }
+            case 58: {
+              var list = new System.Collections.Generic.List<global::Google.ProtocolBuffers.CSharp.Decimal>();
+              input.ReadMessageArray(tag, field_name, list, global::Google.ProtocolBuffers.CSharp.Decimal.DefaultInstance, extensionRegistry);
+              foreach (var item in list) {
+                AddRepDecimalProto(item);
+              }
+              break;
+            }
+            case 66: {
+              var list = new System.Collections.Generic.List<global::Google.ProtocolBuffers.CSharp.Guid>();
+              input.ReadMessageArray(tag, field_name, list, global::Google.ProtocolBuffers.CSharp.Guid.DefaultInstance, extensionRegistry);
+              foreach (var item in list) {
+                AddRepGuidProto(item);
+              }
+              break;
+            }
+          }
+        }
+        
+        if (unknownFields != null) {
+          this.UnknownFields = unknownFields.Build();
+        }
+        return this;
+      }
+      
+      
+      public bool HasOptDateTime {
+       get { return result.hasOptDateTime; }
+      }
+      public System.DateTime OptDateTime {
+        get { return result.OptDateTime; }
+        set { SetOptDateTime(value); }
+      }
+      public Builder SetOptDateTime(System.DateTime value) {
+        PrepareBuilder();
+        result.hasOptDateTime = true;
+        result.optDateTime_ = System.DateTime.SpecifyKind(value, System.DateTimeKind.Utc);
+        return this;
+      }
+      public Builder SetOptDateTimeProto(global::Google.ProtocolBuffers.CSharp.DateTime proto) {
+        SetOptDateTime(new System.DateTime(proto.Ticks));
+        return this;
+      }
+      public Builder ClearOptDateTime() {
+        PrepareBuilder();
+        result.hasOptDateTime = false;
+        result.optDateTime_ = default(System.DateTime);
+        return this;
+      }
+      
+      public bool HasOptDateTimeOffset {
+       get { return result.hasOptDateTimeOffset; }
+      }
+      public System.DateTimeOffset OptDateTimeOffset {
+        get { return result.OptDateTimeOffset; }
+        set { SetOptDateTimeOffset(value); }
+      }
+      public Builder SetOptDateTimeOffset(System.DateTimeOffset value) {
+        PrepareBuilder();
+        result.hasOptDateTimeOffset = true;
+        result.optDateTimeOffset_ = value;
+        return this;
+      }
+      public Builder SetOptDateTimeOffsetProto(global::Google.ProtocolBuffers.CSharp.DateTimeOffset proto) {
+        SetOptDateTimeOffset(new System.DateTimeOffset(proto.Ticks, new System.TimeSpan(proto.OffsetTicks)));
+        return this;
+      }
+      public Builder ClearOptDateTimeOffset() {
+        PrepareBuilder();
+        result.hasOptDateTimeOffset = false;
+        result.optDateTimeOffset_ = default(System.DateTimeOffset);
+        return this;
+      }
+      
+      public bool HasOptDecimal {
+       get { return result.hasOptDecimal; }
+      }
+      public decimal OptDecimal {
+        get { return result.OptDecimal; }
+        set { SetOptDecimal(value); }
+      }
+      public Builder SetOptDecimal(decimal value) {
+        PrepareBuilder();
+        result.hasOptDecimal = true;
+        result.optDecimal_ = value;
+        return this;
+      }
+      public Builder SetOptDecimalProto(global::Google.ProtocolBuffers.CSharp.Decimal proto) {
+        SetOptDecimal(new decimal(new int[] {proto.I0, proto.I1, proto.I2, proto.I3}));
+        return this;
+      }
+      public Builder ClearOptDecimal() {
+        PrepareBuilder();
+        result.hasOptDecimal = false;
+        result.optDecimal_ = default(decimal);
+        return this;
+      }
+      
+      public bool HasOptGuid {
+       get { return result.hasOptGuid; }
+      }
+      public System.Guid OptGuid {
+        get { return result.OptGuid; }
+        set { SetOptGuid(value); }
+      }
+      public Builder SetOptGuid(System.Guid value) {
+        PrepareBuilder();
+        result.hasOptGuid = true;
+        result.optGuid_ = value;
+        return this;
+      }
+      public Builder SetOptGuidProto(global::Google.ProtocolBuffers.CSharp.Guid proto) {
+        SetOptGuid(new System.Guid(pb::ByteString.Unsafe.GetBuffer(proto.Bits)));
+        return this;
+      }
+      public Builder ClearOptGuid() {
+        PrepareBuilder();
+        result.hasOptGuid = false;
+        result.optGuid_ = default(System.Guid);
+        return this;
+      }
+      
+      public pbc::IPopsicleList<System.DateTime> RepDateTimeList {
+        get { return PrepareBuilder().repDateTime_; }
+      }
+      public int RepDateTimeCount {
+        get { return result.RepDateTimeCount; }
+      }
+      public System.DateTime GetRepDateTime(int index) {
+        return result.GetRepDateTime(index);
+      }
+      public Builder SetRepDateTime(int index, System.DateTime value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.repDateTime_[index] = value;
+        return this;
+      }
+      public Builder AddRepDateTime(System.DateTime value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.repDateTime_.Add(value);
+        return this;
+      }
+      public Builder AddRepDateTimeProto(global::Google.ProtocolBuffers.CSharp.DateTime value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        AddRepDateTime(new System.DateTime(value.Ticks));
+        return this;
+      }
+      public Builder AddRangeRepDateTime(scg::IEnumerable<System.DateTime> values) {
+        PrepareBuilder();
+        result.repDateTime_.Add(values);
+        return this;
+      }
+      public Builder ClearRepDateTime() {
+        PrepareBuilder();
+        result.repDateTime_.Clear();
+        return this;
+      }
+      
+      public pbc::IPopsicleList<System.DateTimeOffset> RepDateTimeOffsetList {
+        get { return PrepareBuilder().repDateTimeOffset_; }
+      }
+      public int RepDateTimeOffsetCount {
+        get { return result.RepDateTimeOffsetCount; }
+      }
+      public System.DateTimeOffset GetRepDateTimeOffset(int index) {
+        return result.GetRepDateTimeOffset(index);
+      }
+      public Builder SetRepDateTimeOffset(int index, System.DateTimeOffset value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.repDateTimeOffset_[index] = value;
+        return this;
+      }
+      public Builder AddRepDateTimeOffset(System.DateTimeOffset value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.repDateTimeOffset_.Add(value);
+        return this;
+      }
+      public Builder AddRepDateTimeOffsetProto(global::Google.ProtocolBuffers.CSharp.DateTimeOffset value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        AddRepDateTimeOffset(new System.DateTimeOffset(value.Ticks, new System.TimeSpan(value.OffsetTicks)));
+        return this;
+      }
+      public Builder AddRangeRepDateTimeOffset(scg::IEnumerable<System.DateTimeOffset> values) {
+        PrepareBuilder();
+        result.repDateTimeOffset_.Add(values);
+        return this;
+      }
+      public Builder ClearRepDateTimeOffset() {
+        PrepareBuilder();
+        result.repDateTimeOffset_.Clear();
+        return this;
+      }
+      
+      public pbc::IPopsicleList<decimal> RepDecimalList {
+        get { return PrepareBuilder().repDecimal_; }
+      }
+      public int RepDecimalCount {
+        get { return result.RepDecimalCount; }
+      }
+      public decimal GetRepDecimal(int index) {
+        return result.GetRepDecimal(index);
+      }
+      public Builder SetRepDecimal(int index, decimal value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.repDecimal_[index] = value;
+        return this;
+      }
+      public Builder AddRepDecimal(decimal value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.repDecimal_.Add(value);
+        return this;
+      }
+      public Builder AddRepDecimalProto(global::Google.ProtocolBuffers.CSharp.Decimal value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        AddRepDecimal(new decimal(new int[] {value.I0, value.I1, value.I2, value.I3}));
+        return this;
+      }
+      public Builder AddRangeRepDecimal(scg::IEnumerable<decimal> values) {
+        PrepareBuilder();
+        result.repDecimal_.Add(values);
+        return this;
+      }
+      public Builder ClearRepDecimal() {
+        PrepareBuilder();
+        result.repDecimal_.Clear();
+        return this;
+      }
+      
+      public pbc::IPopsicleList<System.Guid> RepGuidList {
+        get { return PrepareBuilder().repGuid_; }
+      }
+      public int RepGuidCount {
+        get { return result.RepGuidCount; }
+      }
+      public System.Guid GetRepGuid(int index) {
+        return result.GetRepGuid(index);
+      }
+      public Builder SetRepGuid(int index, System.Guid value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.repGuid_[index] = value;
+        return this;
+      }
+      public Builder AddRepGuid(System.Guid value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.repGuid_.Add(value);
+        return this;
+      }
+      public Builder AddRepGuidProto(global::Google.ProtocolBuffers.CSharp.Guid value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        AddRepGuid(new System.Guid(pb::ByteString.Unsafe.GetBuffer(value.Bits)));
+        return this;
+      }
+      public Builder AddRangeRepGuid(scg::IEnumerable<System.Guid> values) {
+        PrepareBuilder();
+        result.repGuid_.Add(values);
+        return this;
+      }
+      public Builder ClearRepGuid() {
+        PrepareBuilder();
+        result.repGuid_.Clear();
+        return this;
+      }
+    }
+    static Msg1() {
+      object.ReferenceEquals(global::tutorial.Test.Descriptor, null);
+    }
+  }
+  
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class Msg2 : pb::GeneratedMessage<Msg2, Msg2.Builder> {
     private Msg2() { }
     private static readonly Msg2 defaultInstance = new Msg2().MakeReadOnly();
-    private static readonly string[] _msg2FieldNames = new string[] { "opt_date_time", "opt_date_time_offset", "opt_decimal", "opt_guid", "rep_date_time", "rep_date_time_offset", "rep_decimal", "rep_guid", "rep_str" };
-    private static readonly uint[] _msg2FieldTags = new uint[] { 10, 18, 26, 34, 42, 50, 58, 66, 82 };
+    private static readonly string[] _msg2FieldNames = new string[] { "opt_date_time", "opt_date_time_offset", "opt_decimal", "opt_guid", "opt_str", "rep_date_time", "rep_date_time_offset", "rep_decimal", "rep_guid", "rep_str" };
+    private static readonly uint[] _msg2FieldTags = new uint[] { 10, 18, 26, 34, 82, 42, 50, 58, 66, 90 };
     public static Msg2 DefaultInstance {
       get { return defaultInstance; }
     }
@@ -103,7 +888,8 @@ namespace tutorial {
     
     public const int OptDecimalFieldNumber = 3;
     private bool hasOptDecimal;
-    private decimal optDecimal_;
+    private static decimal defaultOptDecimal = (decimal)cs.CSharpTypes.ParseOrThrow(cs.CSharpType.kDecimal, "0.01");
+    private decimal optDecimal_ = defaultOptDecimal;
     public bool HasOptDecimal {
       get { return hasOptDecimal; }
     }
@@ -169,7 +955,17 @@ namespace tutorial {
       return repGuid_[index];
     }
     
-    public const int RepStrFieldNumber = 10;
+    public const int OptStrFieldNumber = 10;
+    private bool hasOptStr;
+    private string optStr_ = "";
+    public bool HasOptStr {
+      get { return hasOptStr; }
+    }
+    public string OptStr {
+      get { return optStr_; }
+    }
+    
+    public const int RepStrFieldNumber = 11;
     private pbc::PopsicleList<string> repStr_ = new pbc::PopsicleList<string>();
     public scg::IList<string> RepStrList {
       get { return pbc::Lists.AsReadOnly(repStr_); }
@@ -191,39 +987,50 @@ namespace tutorial {
       int size = SerializedSize;
       string[] field_names = _msg2FieldNames;
       if (hasOptDateTime) {
-        output.WriteString(1, field_names[0], OptDateTime.ToString("O"));
+        string text = cs.CSharpTypes.ToString(this.optDateTime_);
+        output.WriteString(1, field_names[0], text);
       }
       if (hasOptDateTimeOffset) {
-        output.WriteString(2, field_names[1], OptDateTimeOffset.ToString("O"));
+        string text = cs.CSharpTypes.ToString(this.optDateTimeOffset_);
+        output.WriteString(2, field_names[1], text);
       }
       if (hasOptDecimal) {
-        output.WriteString(3, field_names[2], OptDecimal.ToString(System.Globalization.CultureInfo.InvariantCulture));
+        string text = cs.CSharpTypes.ToString(this.optDecimal_);
+        output.WriteString(3, field_names[2], text);
       }
       if (hasOptGuid) {
-        output.WriteString(4, field_names[3], OptGuid.ToString("N"));
+        string text = cs.CSharpTypes.ToString(this.optGuid_);
+        output.WriteString(4, field_names[3], text);
       }
       if (repDateTime_.Count > 0) {
         for (int i = 0; i < repDateTime_.Count; ++i) {
-          output.WriteString(5, field_names[4], GetRepDateTime(i).ToString("O"));
+          string text = cs.CSharpTypes.ToString(this.repDateTime_[i]);
+          output.WriteString(5, field_names[5], text);
         }
       }
       if (repDateTimeOffset_.Count > 0) {
         for (int i = 0; i < repDateTimeOffset_.Count; ++i) {
-          output.WriteString(6, field_names[5], GetRepDateTimeOffset(i).ToString("O"));
+          string text = cs.CSharpTypes.ToString(this.repDateTimeOffset_[i]);
+          output.WriteString(6, field_names[6], text);
         }
       }
       if (repDecimal_.Count > 0) {
         for (int i = 0; i < repDecimal_.Count; ++i) {
-          output.WriteString(7, field_names[6], GetRepDecimal(i).ToString(System.Globalization.CultureInfo.InvariantCulture));
+          string text = cs.CSharpTypes.ToString(this.repDecimal_[i]);
+          output.WriteString(7, field_names[7], text);
         }
       }
       if (repGuid_.Count > 0) {
         for (int i = 0; i < repGuid_.Count; ++i) {
-          output.WriteString(8, field_names[7], GetRepGuid(i).ToString("N"));
+          string text = cs.CSharpTypes.ToString(this.repGuid_[i]);
+          output.WriteString(8, field_names[8], text);
         }
       }
+      if (hasOptStr) {
+        output.WriteString(10, field_names[4], OptStr);
+      }
       if (repStr_.Count > 0) {
-        output.WriteStringArray(10, field_names[8], repStr_);
+        output.WriteStringArray(11, field_names[9], repStr_);
       }
       UnknownFields.WriteTo(output);
     }
@@ -236,44 +1043,55 @@ namespace tutorial {
         
         size = 0;
         if (hasOptDateTime) {
-          size += pb::CodedOutputStream.ComputeStringSize(1, OptDateTime.ToString("O"));
+          string text = cs.CSharpTypes.ToString(this.optDateTime_);
+          size += pb::CodedOutputStream.ComputeStringSize(1, text);
         }
         if (hasOptDateTimeOffset) {
-          size += pb::CodedOutputStream.ComputeStringSize(2, OptDateTimeOffset.ToString("O"));
+          string text = cs.CSharpTypes.ToString(this.optDateTimeOffset_);
+          size += pb::CodedOutputStream.ComputeStringSize(2, text);
         }
         if (hasOptDecimal) {
-          size += pb::CodedOutputStream.ComputeStringSize(3, OptDecimal.ToString(System.Globalization.CultureInfo.InvariantCulture));
+          string text = cs.CSharpTypes.ToString(this.optDecimal_);
+          size += pb::CodedOutputStream.ComputeStringSize(3, text);
         }
         if (hasOptGuid) {
-          size += pb::CodedOutputStream.ComputeStringSize(4, OptGuid.ToString("N"));
+          string text = cs.CSharpTypes.ToString(this.optGuid_);
+          size += pb::CodedOutputStream.ComputeStringSize(4, text);
         }
         {
           int dataSize = 0;
           for (int i = 0; i < repDateTime_.Count; ++i) {
-            dataSize += pb::CodedOutputStream.ComputeStringSize(5, GetRepDateTime(i).ToString("O"));
+            string text = cs.CSharpTypes.ToString(this.repDateTime_[i]);
+            dataSize += pb::CodedOutputStream.ComputeStringSize(5, text);
           }
           size += dataSize;
         }
         {
           int dataSize = 0;
           for (int i = 0; i < repDateTimeOffset_.Count; ++i) {
-            dataSize += pb::CodedOutputStream.ComputeStringSize(6, GetRepDateTimeOffset(i).ToString("O"));
+            string text = cs.CSharpTypes.ToString(this.repDateTimeOffset_[i]);
+            dataSize += pb::CodedOutputStream.ComputeStringSize(6, text);
           }
           size += dataSize;
         }
         {
           int dataSize = 0;
           for (int i = 0; i < repDecimal_.Count; ++i) {
-            dataSize += pb::CodedOutputStream.ComputeStringSize(7, GetRepDecimal(i).ToString(System.Globalization.CultureInfo.InvariantCulture));
+            string text = cs.CSharpTypes.ToString(this.repDecimal_[i]);
+            dataSize += pb::CodedOutputStream.ComputeStringSize(7, text);
           }
           size += dataSize;
         }
         {
           int dataSize = 0;
           for (int i = 0; i < repGuid_.Count; ++i) {
-            dataSize += pb::CodedOutputStream.ComputeStringSize(8, GetRepGuid(i).ToString("N"));
+            string text = cs.CSharpTypes.ToString(this.repGuid_[i]);
+            dataSize += pb::CodedOutputStream.ComputeStringSize(8, text);
           }
           size += dataSize;
+        }
+        if (hasOptStr) {
+          size += pb::CodedOutputStream.ComputeStringSize(10, OptStr);
         }
         {
           int dataSize = 0;
@@ -436,6 +1254,9 @@ namespace tutorial {
         if (other.repGuid_.Count != 0) {
           result.repGuid_.Add(other.repGuid_);
         }
+        if (other.HasOptStr) {
+          OptStr = other.OptStr;
+        }
         if (other.repStr_.Count != 0) {
           result.repStr_.Add(other.repStr_);
         }
@@ -483,57 +1304,31 @@ namespace tutorial {
               break;
             }
             case 10: {
-              string text = null;
-              if (input.ReadString(ref text)) {
-                System.DateTime value;
-                if (System.DateTime.TryParse(text, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.AssumeUniversal, out value)) {
-                  result.hasOptDateTime = true;
-                  result.optDateTime_ = value;
-                }
-              }
+              string textOptDateTime = null;
+              result.hasOptDateTime = input.ReadString(ref textOptDateTime) && cs.CSharpTypes.TryParse(textOptDateTime, ref result.optDateTime_);
               break;
             }
             case 18: {
-              string text = null;
-              if (input.ReadString(ref text)) {
-                System.DateTimeOffset value;
-                if (System.DateTimeOffset.TryParse(text, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.AssumeUniversal, out value)) {
-                  result.hasOptDateTimeOffset = true;
-                  result.optDateTimeOffset_ = value;
-                }
-              }
+              string textOptDateTimeOffset = null;
+              result.hasOptDateTimeOffset = input.ReadString(ref textOptDateTimeOffset) && cs.CSharpTypes.TryParse(textOptDateTimeOffset, ref result.optDateTimeOffset_);
               break;
             }
             case 26: {
-              string text = null;
-              if (input.ReadString(ref text)) {
-                decimal value;
-                if (System.Decimal.TryParse(text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out value)) {
-                  result.hasOptDecimal = true;
-                  result.optDecimal_ = value;
-                }
-              }
+              string textOptDecimal = null;
+              result.hasOptDecimal = input.ReadString(ref textOptDecimal) && cs.CSharpTypes.TryParse(textOptDecimal, ref result.optDecimal_);
               break;
             }
             case 34: {
-              string text = null;
-              if (input.ReadString(ref text)) {
-                System.Guid value;
-                try {
-                  value = new System.Guid(text); 
-                  result.hasOptGuid = true;
-                  result.optGuid_ = value;
-                }
-                catch {}
-              }
+              string textOptGuid = null;
+              result.hasOptGuid = input.ReadString(ref textOptGuid) && cs.CSharpTypes.TryParse(textOptGuid, ref result.optGuid_);
               break;
             }
             case 42: {
               var list = new System.Collections.Generic.List<string>();
               input.ReadStringArray(tag, field_name, list);
               foreach (var text in list) {
-                System.DateTime value;
-                if (System.DateTime.TryParse(text, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.AssumeUniversal, out value)) {
+                var value = default(System.DateTime);
+                if (cs.CSharpTypes.TryParse(text, ref value)) {
                   AddRepDateTime(value);
                 }
               }
@@ -543,8 +1338,8 @@ namespace tutorial {
               var list = new System.Collections.Generic.List<string>();
               input.ReadStringArray(tag, field_name, list);
               foreach (var text in list) {
-                System.DateTimeOffset value;
-                if (System.DateTimeOffset.TryParse(text, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.AssumeUniversal, out value)) {
+                var value = default(System.DateTimeOffset);
+                if (cs.CSharpTypes.TryParse(text, ref value)) {
                   AddRepDateTimeOffset(value);
                 }
               }
@@ -554,8 +1349,8 @@ namespace tutorial {
               var list = new System.Collections.Generic.List<string>();
               input.ReadStringArray(tag, field_name, list);
               foreach (var text in list) {
-                decimal value;
-                if (System.Decimal.TryParse(text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out value)) {
+                var value = default(decimal);
+                if (cs.CSharpTypes.TryParse(text, ref value)) {
                   AddRepDecimal(value);
                 }
               }
@@ -565,16 +1360,18 @@ namespace tutorial {
               var list = new System.Collections.Generic.List<string>();
               input.ReadStringArray(tag, field_name, list);
               foreach (var text in list) {
-                System.Guid value;
-                try {
-                  value = new System.Guid(text); 
+                var value = default(System.Guid);
+                if (cs.CSharpTypes.TryParse(text, ref value)) {
                   AddRepGuid(value);
                 }
-                catch {}
               }
               break;
             }
             case 82: {
+              result.hasOptStr = input.ReadString(ref result.optStr_);
+              break;
+            }
+            case 90: {
               input.ReadStringArray(tag, field_name, result.repStr_);
               break;
             }
@@ -598,7 +1395,7 @@ namespace tutorial {
       public Builder SetOptDateTime(System.DateTime value) {
         PrepareBuilder();
         result.hasOptDateTime = true;
-        result.optDateTime_ = value;
+        result.optDateTime_ = System.DateTime.SpecifyKind(value, System.DateTimeKind.Utc);
         return this;
       }
       public Builder ClearOptDateTime() {
@@ -644,7 +1441,7 @@ namespace tutorial {
       public Builder ClearOptDecimal() {
         PrepareBuilder();
         result.hasOptDecimal = false;
-        result.optDecimal_ = default(decimal);
+        result.optDecimal_ = defaultOptDecimal;
         return this;
       }
       
@@ -793,6 +1590,27 @@ namespace tutorial {
       public Builder ClearRepGuid() {
         PrepareBuilder();
         result.repGuid_.Clear();
+        return this;
+      }
+      
+      public bool HasOptStr {
+        get { return result.hasOptStr; }
+      }
+      public string OptStr {
+        get { return result.OptStr; }
+        set { SetOptStr(value); }
+      }
+      public Builder SetOptStr(string value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.hasOptStr = true;
+        result.optStr_ = value;
+        return this;
+      }
+      public Builder ClearOptStr() {
+        PrepareBuilder();
+        result.hasOptStr = false;
+        result.optStr_ = "";
         return this;
       }
       
