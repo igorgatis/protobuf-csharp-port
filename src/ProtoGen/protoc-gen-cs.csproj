@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <EnvironmentFlavor>CLIENTPROFILE</EnvironmentFlavor>
@@ -60,6 +60,8 @@
     <Compile Include="MessageFieldGenerator.cs" />
     <Compile Include="MessageGenerator.cs" />
     <Compile Include="PluginProtoFile.cs" />
+    <Compile Include="Plugins\CSharpFieldGenerator.cs" />
+    <Compile Include="Plugins\RepeatedCSharpFieldGenerator.cs" />
     <Compile Include="PrimitiveFieldGenerator.cs" />
     <Compile Include="ProtocGenCs.cs" />
     <Compile Include="RepeatedEnumFieldGenerator.cs" />
@@ -91,7 +93,7 @@
     <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

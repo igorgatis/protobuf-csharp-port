@@ -37,6 +37,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using Google.ProtocolBuffers.Collections;
 using Google.ProtocolBuffers.Compiler.PluginProto;
@@ -68,7 +69,10 @@ namespace Google.ProtocolBuffers.ProtoGen
 
         public void Generate(CodeGeneratorRequest request, CodeGeneratorResponse.Builder response)
         {
-            IList<FileDescriptor> descriptors = ConvertDescriptors(options.FileOptions, request.ProtoFileList);
+            var filesToGenerate = new HashSet<string>(request.FileToGenerateList);
+            IList<FileDescriptor> descriptors = ConvertDescriptors(options.FileOptions, request.ProtoFileList)
+                .Where((d) => filesToGenerate.Contains(d.Name))
+                .ToList();
 
             // Combine with options from command line
             foreach (FileDescriptor descriptor in descriptors)
@@ -89,7 +93,6 @@ namespace Google.ProtocolBuffers.ProtoGen
                 names.Add(file, true);
             }
 
-            var filesToGenerate = new HashSet<string>(request.FileToGenerateList);
             foreach (FileDescriptor descriptor in descriptors)
             {
                 // Optionally exclude descriptors in google.protobuf
@@ -97,10 +100,7 @@ namespace Google.ProtocolBuffers.ProtoGen
                 {
                     continue;
                 }
-                if (filesToGenerate.Contains(descriptor.Name))
-                {
-                    Generate(descriptor, duplicates, response);
-                }
+                Generate(descriptor, duplicates, response);
             }
         }
 

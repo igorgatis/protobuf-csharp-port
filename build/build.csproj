@@ -18,7 +18,7 @@
     <ProjectName>Protocol Buffers</ProjectName>
     <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">Any CPU</Platform>
-    
+
     <!--Directory Paths-->
     <ProjectDirectory>$(MSBuildProjectDirectory)\..</ProjectDirectory>
     <SourceDirectory>$(ProjectDirectory)\src</SourceDirectory>
@@ -35,14 +35,14 @@
     <BenchmarkProtosDirectory>$(ProjectDirectory)\benchmarks</BenchmarkProtosDirectory>
 
     <PackageName Condition=" '$(PackageName)' == '' ">$(Configuration)</PackageName>
-    
+
     <!--Tool Paths-->
     <ProtocExePath>$(BuildOutputDirectory)\tools\protoc.exe</ProtocExePath>
     <ProtogenExePath>$(BuildOutputDirectory)\tools\protogen.exe</ProtogenExePath>
     <NUnitExePath>$(LibDirectory)\NUnit\tools\nunit-console.exe</NUnitExePath>
     <CsProjectProjector>$(LibDirectory)\CsProjectProjector\CsProjectProjector.exe</CsProjectProjector>
     <ZipExePath>$(LibDirectory)\7-Zip 9.20\7za.exe</ZipExePath>
-  
+
 </PropertyGroup>
 
   <Import Project="Common.targets"/>
@@ -87,7 +87,7 @@
     <GeneratedSource Include="$(SourceTempDirectory)\DescriptorProtoFile.cs">
       <TargetDirectory>$(SourceDirectory)\ProtocolBuffers\DescriptorProtos</TargetDirectory>
     </GeneratedSource>
-        
+
     <!-- Address book sample -->
     <GeneratedSource Include="$(SourceTempDirectory)\AddressBookProtos.cs">
       <TargetDirectory>$(SourceDirectory)\AddressBook</TargetDirectory>
@@ -116,7 +116,7 @@
     </GeneratedSource>
     <GeneratedSource Include="$(SourceTempDirectory)\UnitTestImportLiteProtoFile.cs">
       <TargetDirectory>$(SourceDirectory)\ProtocolBuffers.Test\TestProtos</TargetDirectory>
-    </GeneratedSource>  
+    </GeneratedSource>
     <GeneratedSource Include="$(SourceTempDirectory)\UnitTestImportProtoFile.cs">
       <TargetDirectory>$(SourceDirectory)\ProtocolBuffers.Test\TestProtos</TargetDirectory>
     </GeneratedSource>
